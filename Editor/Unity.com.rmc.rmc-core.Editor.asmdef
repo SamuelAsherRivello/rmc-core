@@ -1,7 +1,9 @@
 {
-    "name": "Unity.com.{{COMPANY}}.{{REPOSITORY_NAME}}",
+    "name": "Unity.com.rmc.rmc-core.Editor",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

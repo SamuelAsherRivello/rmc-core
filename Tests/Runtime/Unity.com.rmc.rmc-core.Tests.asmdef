@@ -1,7 +1,7 @@
 {
-  "name": "Unity.com.{{COMPANY}}.{{REPOSITORY_NAME}}.Editor.Tests",
+  "name": "Unity.com.rmc.rmc-core.Tests",
   "references": [
-    "Unity.com.{{COMPANY}}.{{REPOSITORY_NAME}}"
+    "Unity.com.rmc.rmc-core"
   ],
   "optionalUnityReferences": [
     "TestAssemblies"

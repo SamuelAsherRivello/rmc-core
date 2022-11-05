@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Tests.Runtime
+namespace Tests.Editor
 {
-    public class {{FRIENDLY_NAME}}Tests
+    public class RMC CoreTests
     {
         [SetUp]
         public void Setup()
