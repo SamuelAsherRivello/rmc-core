@@ -1,8 +1,8 @@
 {
   "name": "com.rmc.rmc-core",
-  "displayName": "rmc - RMC Core",
-  "version": "0.0.0",
-  "unity": "2021.3.12f1",
+  "displayName": "RMC Core",
+  "version": "0.1.2",
+  "unity": "2021.3",
   "description": "Core library for Unity Development by Rivello Multimedia Consulting",
   "keywords": [
     "unity",
@@ -23,5 +23,12 @@
   "author": "rmc (github.com/SamuelAsherRivello)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "RMC Core Sample",
+      "description": "Demonstrates the RMC Core",
+      "path": "Samples~/RMC Core Sample"
+    }
+  ]
 }

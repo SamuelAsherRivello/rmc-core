@@ -1,0 +1,5 @@
+Source Url: 
+* https://docs.unity3d.com/Manual/com.unity.textmeshpro.html
+
+Changelog: 
+* Moved to /Assets/3rdParty/
