@@ -5,10 +5,10 @@ namespace RMC.Core.Architectures.MiniMvcs
     /// <summary>
     /// Replace with comments...
     /// </summary>
-    public interface IActor : IInitializable
+    public interface IActor : IInitializableWithContext
     {
         //  Properties ------------------------------------
-        public IContext Context { get; }
+    
 
         //  Methods ---------------------------------------
     }
