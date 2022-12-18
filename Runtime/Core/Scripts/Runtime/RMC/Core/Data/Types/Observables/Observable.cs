@@ -21,7 +21,6 @@ namespace RMC.Core.Data.Types.Observables
             get
             {
                 return _value;
-
             }
         }
 
@@ -31,7 +30,7 @@ namespace RMC.Core.Data.Types.Observables
         //  Constructor Methods ---------------------------
         static Observable()
         {
-            Debug.LogWarning("Observable static called. FYI to me");
+            //Debug.LogWarning("Observable static called. FYI to me");
         }
 
         public Observable()

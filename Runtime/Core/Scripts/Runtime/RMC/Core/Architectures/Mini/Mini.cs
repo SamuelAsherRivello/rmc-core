@@ -1,7 +1,10 @@
+using System;
 using RMC.Core.Architectures.MiniMvcs.Controller;
 using RMC.Core.Architectures.MiniMvcs.Model;
 using RMC.Core.Architectures.MiniMvcs.Service;
 using RMC.Core.Architectures.MiniMvcs.View;
+using RMC.Core.Exceptions;
+using RMC.Core.Interfaces;
 
 namespace RMC.Core.Architectures.MiniMvcs
 {
@@ -12,32 +15,47 @@ namespace RMC.Core.Architectures.MiniMvcs
     /// <summary>
     /// Replace with comments...
     /// </summary>
-    public class Mini
+    public class Mini<X,M,V,C,S> : IInitializable 
+        where X : IContext 
+        where M : IModel 
+        where V : IView
+        where C : IController 
+        where S : IService 
+    
     {
         //  Events ----------------------------------------
 
 
         //  Properties ------------------------------------
-        protected IModel _model;
-        protected IView _view;
-        protected IController _controller;
-        protected IService _service;
-        protected Context _context;
-
-
+        public bool IsInitialized { get { return _isInitialized;} }
+        
+        protected X _context;
+        protected M _model;
+        protected V _view;
+        protected C _controller;
+        protected S _service;
+        
         //  Fields ----------------------------------------
-
+        protected bool _isInitialized = false;
 
         //  Initialization --------------------------------
-        public Mini()
+        public virtual void Initialize()
         {
-
+            throw new NotImplementedException("Override me");
         }
 
+        public void RequireIsInitialized()
+        {
+            if (!_isInitialized)
+            {
+                throw new NotInitializedException(this);
+            }
+        }
 
         //  Methods ---------------------------------------
 
 
         //  Event Handlers --------------------------------
+
     }
 }

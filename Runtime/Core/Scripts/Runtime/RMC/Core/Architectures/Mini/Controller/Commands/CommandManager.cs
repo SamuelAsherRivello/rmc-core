@@ -18,11 +18,6 @@ namespace RMC.Core.Architectures.MiniMvcs.Controller.Commands
 			RemoveCommandListenerImpl(del);
 		}
 
-		public void AddCommandListener<T>()
-		{
-			throw new NotImplementedException();
-		}
-
 		public void InvokeCommand(Command e)
 		{
 			InvokeCommandImpl(e);
