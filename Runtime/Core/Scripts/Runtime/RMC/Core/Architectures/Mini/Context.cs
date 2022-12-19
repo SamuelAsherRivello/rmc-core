@@ -1,5 +1,4 @@
 ﻿using RMC.Core.Architectures.MiniMvcs.Controller.Commands;
-using UnityEngine;
 
 namespace RMC.Core.Architectures.MiniMvcs
 {
@@ -11,12 +10,11 @@ namespace RMC.Core.Architectures.MiniMvcs
 		public ModelLocator ModelLocator { get { return _modelLocator; } }
 		public CommandManager CommandManager { get { return _commandManager; } }
 
-		private ModelLocator _modelLocator = null;
-		private CommandManager _commandManager = null;
+		private readonly ModelLocator _modelLocator;
+		private readonly CommandManager _commandManager;
 
 		public Context()
 		{
-			Debug.Log("Create");
 			_modelLocator = new ModelLocator();
 			_commandManager = new CommandManager();
 		}
