@@ -1,6 +1,4 @@
-using RMC.Core.Interfaces;
-
-namespace RMC.Core.Architectures.MiniMvcs
+namespace RMC.Core.Architectures.Mini.Context
 {
     /// <summary>
     /// Replace with comments...

@@ -1,35 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace RMC.Core.Architectures.MiniMvcs.Controller.Commands
 {
 	/// <summary>
-	/// Available without permission. Write to code@RivelloMultimediaConsulting.com
+	/// Replace with comments...
 	/// </summary>
 	public class CommandManager
 	{
-		public void AddCommandListener<T>(CommandDelegate<T> del) where T : Command
+		public void AddCommandListener<T>(CommandDelegate<T> del) where T : ICommand
 		{
 			AddCommandListenerImpl(del);
 		}
 
-		public void RemoveCommandListener<T>(CommandDelegate<T> del) where T : Command
+		public void RemoveCommandListener<T>(CommandDelegate<T> del) where T : ICommand
 		{
 			RemoveCommandListenerImpl(del);
 		}
 
-		public void InvokeCommand(Command e)
+		public void InvokeCommand(ICommand e)
 		{
 			InvokeCommandImpl(e);
 		}
-		public delegate void CommandDelegate<T>(T e) where T : Command;
-		private delegate void CommandDelegate(Command e);
+		public delegate void CommandDelegate<T>(T e) where T : ICommand;
+		private delegate void CommandDelegate(ICommand e);
 
 		private Dictionary<System.Type, CommandDelegate> _commandDelegates = new Dictionary<System.Type, CommandDelegate>();
 
 		private Dictionary<System.Delegate, CommandDelegate> _commandDelegatesLookup = new Dictionary<System.Delegate, CommandDelegate>();
 
-		private void AddCommandListenerImpl<T>(CommandDelegate<T> del) where T : Command
+		private void AddCommandListenerImpl<T>(CommandDelegate<T> del) where T : ICommand
 		{
 
 			if (_commandDelegatesLookup.ContainsKey(del))
@@ -51,7 +50,7 @@ namespace RMC.Core.Architectures.MiniMvcs.Controller.Commands
 			}
 		}
 
-		private void RemoveCommandListenerImpl<T>(CommandDelegate<T> del) where T : Command
+		private void RemoveCommandListenerImpl<T>(CommandDelegate<T> del) where T : ICommand
 		{
 			CommandDelegate internalDelegate;
 
@@ -77,7 +76,7 @@ namespace RMC.Core.Architectures.MiniMvcs.Controller.Commands
 
 		public int DelegateLookupCount { get { return _commandDelegatesLookup.Count; } }
 
-		private void InvokeCommandImpl(Command e)
+		private void InvokeCommandImpl(ICommand e)
 		{
 			CommandDelegate del;
 			if (_commandDelegates.TryGetValue(e.GetType(), out del))

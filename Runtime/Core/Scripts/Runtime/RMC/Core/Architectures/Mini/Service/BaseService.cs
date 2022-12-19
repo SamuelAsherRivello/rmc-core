@@ -1,3 +1,4 @@
+using RMC.Core.Architectures.Mini.Context;
 using RMC.Core.Exceptions;
 
 namespace RMC.Core.Architectures.MiniMvcs.Service

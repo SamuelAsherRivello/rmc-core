@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 namespace RMC.Core.Data.Types.Observables
 {
     /// <summary>
@@ -8,24 +7,29 @@ namespace RMC.Core.Data.Types.Observables
     public class Observable<T> 
     {
         //  Events ----------------------------------------
-        public ObservableUnityEvent<T> OnValueChanged = new ObservableUnityEvent<T>();
+        public readonly ObservableUnityEvent<T,T> OnValueChanged = new ObservableUnityEvent<T,T>();
 
         //  Properties ------------------------------------
+        
+        /// <summary>
+        /// Keep this property name as "Value"
+        /// </summary>
         public T Value
         {
             set
             {
-                _value = OnValueChanging(_value, value);
-                OnValueChanged.Invoke(_value);
+                _currentValue = OnValueChanging(_currentValue, value);
+                OnValueChanged.Invoke(_previousValue, _currentValue);
             }
             get
             {
-                return _value;
+                return _currentValue;
             }
         }
 
         //  Fields ----------------------------------------
-        private T _value;
+        private T _currentValue;
+        private T _previousValue;
 
         //  Constructor Methods ---------------------------
         static Observable()
@@ -40,8 +44,10 @@ namespace RMC.Core.Data.Types.Observables
         }
 
         //  Methods ---------------------------------------
-        protected virtual T OnValueChanging(T oldValue, T newValue)
+        protected virtual T OnValueChanging(T previousValue, T newValue)
         {
+            //Optional: Override method to gate/police the value changes
+            _previousValue = previousValue;
             return newValue;
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RMC.Core.Architectures.MiniMvcs
+namespace RMC.Core.Architectures.Mini.Context
 {
 	/// <summary>
 	/// TODO: Add comment

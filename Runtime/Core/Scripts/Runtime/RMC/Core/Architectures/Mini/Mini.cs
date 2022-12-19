@@ -1,3 +1,4 @@
+using RMC.Core.Architectures.Mini.Context;
 using RMC.Core.Architectures.MiniMvcs.Controller;
 using RMC.Core.Architectures.MiniMvcs.Model;
 using RMC.Core.Architectures.MiniMvcs.Service;

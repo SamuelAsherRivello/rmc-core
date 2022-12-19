@@ -1,4 +1,6 @@
 
+using RMC.Core.Architectures.Mini.Context;
+
 namespace RMC.Core.Architectures.MiniMvcs.Model
 {
     /// <summary>

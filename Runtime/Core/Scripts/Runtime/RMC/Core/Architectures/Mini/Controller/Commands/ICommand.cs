@@ -3,7 +3,7 @@
 	/// <summary>
 	/// TODO: Add comment
 	/// </summary>
-	public abstract class Command
+	public interface ICommand
 	{
 	}
 }

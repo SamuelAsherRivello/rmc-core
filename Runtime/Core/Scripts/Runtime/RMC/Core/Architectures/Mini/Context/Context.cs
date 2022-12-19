@@ -1,6 +1,6 @@
 ﻿using RMC.Core.Architectures.MiniMvcs.Controller.Commands;
 
-namespace RMC.Core.Architectures.MiniMvcs
+namespace RMC.Core.Architectures.Mini.Context
 {
 	/// <summary>
 	/// TODO: Add comment

@@ -1,6 +1,4 @@
-﻿using RMC.Core.Architectures.MiniMvcs;
-
-namespace RMC.Core.Interfaces
+﻿namespace RMC.Core.Architectures.Mini.Context
 {
     /// <summary>
     /// Implements API for types which Initialize.
