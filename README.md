@@ -19,7 +19,9 @@ Core library for Unity Development by Rivello Multimedia Consulting
 
 ## How to use
 
-*Work In Progress* (The only way that fully fucnctions is the "via Git URL" below)
+*Work In Progress* 
+
+**Use only the "via Git URL" below**
 
 ## Install
 
