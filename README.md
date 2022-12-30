@@ -17,50 +17,28 @@ Core library for Unity Development by Rivello Multimedia Consulting
 
 <!-- toc -->
 
-## How to use
-
-*Work In Progress* 
-
-**Use only the "via Git URL" below**
-
 ## Install
 
-### via npm
-
-Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line to dependencies block:
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "npmjs",
-      "url": "https://registry.npmjs.org/",
-      "scopes": [
-        "com.rmc"
-      ]
-    }
-  ],
-  "dependencies": {
-    "com.rmc.rmc-core": "1.0.0"
-  }
-}
-```
-Package should now appear in package manager.
-
-### via OpenUPM
-
-The package is also available on the [openupm registry](https://openupm.com/packages/com.rmc.rmc-core). You can install it eg. via [openupm-cli](https://github.com/openupm/openupm-cli).
-
-```
-openupm add com.rmc.rmc-core
-```
-
-### via Git URL
+### Install RMC Core via Git URL
 
 Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
 ```json
 {
   "dependencies": {
     "com.rmc.rmc-core": "https://github.com/SamuelAsherRivello/rmc-core.git"
+  }
+}
+```
+
+### Install Depencencies via Git URL
+
+
+Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
+```json
+{
+  "dependencies": {
+   "jillejr.newtonsoft.json-for-unity": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.git#upm",
+   "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
   }
 }
 ```
@@ -78,16 +56,6 @@ Open `Packages/manifest.json` with your favorite text editor. Add following line
   "testables": [ "com.rmc.rmc-core" ]
 }
 ```
-
-## Configuration
-
-*Work In Progress*
-
-## License
-
-MIT License
-
-Copyright © 2022 rmc
 
 
 Created By
