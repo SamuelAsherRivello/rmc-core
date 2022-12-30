@@ -23,12 +23,5 @@
   "author": "rmc (github.com/SamuelAsherRivello)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "samples": [
-    {
-      "displayName": "RMC Core Sample",
-      "description": "Demonstrates the RMC Core",
-      "path": "Samples~/RMC Core Sample"
-    }
-  ]
+  }
 }
