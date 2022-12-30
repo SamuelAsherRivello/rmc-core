@@ -7,28 +7,12 @@
 
 Core library for Unity Development by Rivello Multimedia Consulting
 
-- [How to use](#how-to-use)
 - [Install](#install)
-  - [via npm](#via-npm)
-  - [via OpenUPM](#via-openupm)
   - [via Git URL](#via-git-url)
   - [Tests](#tests)
-- [Configuration](#configuration)
+
 
 <!-- toc -->
-
-## Install
-
-### Install RMC Core via Git URL
-
-Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
-```json
-{
-  "dependencies": {
-    "com.rmc.rmc-core": "https://github.com/SamuelAsherRivello/rmc-core.git"
-  }
-}
-```
 
 ### Install Depencencies via Git URL
 
@@ -57,6 +41,12 @@ Open `Packages/manifest.json` with your favorite text editor. Add following line
 }
 ```
 
+### Import Samples
+To see clear use cases, import and run the samples:
+
+1. Open Unity and then open `Window > Package Manager`
+1. Select `RMC Core` 
+1. Select Samples and import
 
 Created By
 =============
