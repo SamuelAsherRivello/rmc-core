@@ -1,7 +1,10 @@
 {
-    "name": "RMC.Web3.Tests",
+    "name": "RMC.Core.Web3.Editor.Tests",
     "rootNamespace": "",
-    "references": ["GUID:8d0b5587a0a8ae741afbfe3a79c2872a"],
+    "references": [
+        "GUID:8d0b5587a0a8ae741afbfe3a79c2872a",
+        "GUID:a4b5fcf1d2958fe4fa2f246cbd8df647"
+    ],
     "includePlatforms": [
         "Editor"
     ],
