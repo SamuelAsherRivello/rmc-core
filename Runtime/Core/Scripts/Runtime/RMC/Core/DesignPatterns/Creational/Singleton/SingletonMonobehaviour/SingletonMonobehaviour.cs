@@ -100,6 +100,15 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
 
         public static T Instantiate()
         {
+            
+            var instances = GameObject.FindObjectsByType<T>(FindObjectsSortMode.InstanceID);
+            if (instances.Length > 1)
+            {
+                Debug.Log("instances.Length: " + instances.Length);
+                Debug.Log("destroy one");
+                Destroy(instances[2].gameObject);
+            }
+            
             if (IsShuttingDown || !Application.isPlaying)
             {
                 Debug.LogError("Must check IsShuttingDown before calling Instantiate/Instance.");
@@ -114,7 +123,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
                     GameObject go = new GameObject();
                     _Instance = go.AddComponent<T>();
                     go.name = _Instance.GetType().FullName;
-                    DontDestroyOnLoad(go);
+                    
                 }
 
                 // Notify child scope
@@ -126,6 +135,11 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
                     OnInstantiateCompleted(_Instance);
                 }
             }
+            
+            //SafeDontDestroyOnLoad()
+            _Instance.gameObject.transform.parent = null;
+            DontDestroyOnLoad(_Instance.gameObject);
+            
             return _Instance;
         }
 
@@ -159,7 +173,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
         {
             
             IsShuttingDown = true;
-            //Debug.Log("77777777 Destroy: ");
+
             if (IsInstantiated)
             {
                 if (Application.isPlaying)
