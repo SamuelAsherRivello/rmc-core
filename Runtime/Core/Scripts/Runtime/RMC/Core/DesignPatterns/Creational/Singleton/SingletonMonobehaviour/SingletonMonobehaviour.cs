@@ -25,7 +25,6 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
             internal set
             {
                 _IsShuttingDown = value;
-               Debug.Log("777777 _IsShuttingDown: " + _IsShuttingDown);
             }
         }
         
