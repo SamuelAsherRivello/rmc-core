@@ -7,6 +7,14 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
     public abstract class SingletonMonobehaviour : MonoBehaviour
     {
         private static bool _IsShuttingDown = false;
+
+        public bool HasDontDestroyOnLoad
+        {
+            get
+            {
+                return (gameObject.hideFlags & HideFlags.DontSave) != HideFlags.DontSave;
+            }
+        }
         
         public static bool IsShuttingDown
         {
@@ -17,7 +25,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
             internal set
             {
                 _IsShuttingDown = value;
-               // Debug.Log("777777 _IsShuttingDown: " + _IsShuttingDown);
+               Debug.Log("777777 _IsShuttingDown: " + _IsShuttingDown);
             }
         }
         
@@ -97,6 +105,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
             {
                 Debug.LogError("Must check IsShuttingDown before calling Instantiate/Instance.");
             }
+            
             if (!IsInstantiated)
             {
                 _Instance = GameObject.FindObjectOfType<T>();
@@ -137,6 +146,10 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehavi
         /// </summary>
         protected virtual void OnDestroy()
         {
+            if (HasDontDestroyOnLoad)
+            {
+                return;
+            }
             Destroy();
         }
         
