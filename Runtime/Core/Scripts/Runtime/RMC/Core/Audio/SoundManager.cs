@@ -38,16 +38,16 @@ namespace RMC.Core.Audio
 		// Unity Methods ----------------------------------
 		protected void Start()
 		{
-			_masterVolume = new Volume(MasterAudioMixerGroup, "MasterVolume", 1);
+			//_masterVolume = new Volume(MasterAudioMixerGroup, "MasterVolume", 1);
 			
 			// Data
-			Assert.IsNotNull(_soundManagerConfiguration);
-			Assert.IsNotNull(_soundManagerConfiguration.AudioClips);
-			Assert.IsTrue(_soundManagerConfiguration.AudioClips.Count > 0);
-			Assert.IsNotNull(_soundManagerConfiguration.AudioMixer);
+			Assert.IsNotNull(_soundManagerConfiguration, "Must have SoundManagerConfiguration instance.");
+			Assert.IsNotNull(_soundManagerConfiguration.AudioClips, "Must have AudioClips.");
+			Assert.IsTrue(_soundManagerConfiguration.AudioClips.Count > 0, "Must have AudioClips.");
+			Assert.IsNotNull(_soundManagerConfiguration.AudioMixer, "Must have AudioMixer.");
 			
-			// Structure
-			Assert.IsTrue(_audioSources.Count > 0);
+			// Structure	
+			Assert.IsTrue(_audioSources.Count > 0, "Must have AudioSources.");
 			AssignAudioMixerToAllAudioSources();
 		}
 		
@@ -66,6 +66,11 @@ namespace RMC.Core.Audio
 			foreach (AudioSource audioSource in _audioSources)
 			{
 				audioSource.outputAudioMixerGroup = MasterAudioMixerGroup;
+				
+				if (audioSource.playOnAwake)
+				{
+					audioSource.playOnAwake = false;
+				}
 			}
 		}
 		
@@ -95,11 +100,15 @@ namespace RMC.Core.Audio
 		/// </summary>
 		private void PlayAudioClip(AudioClip audioClip)
 		{
+			if (audioClip == null)
+			{
+				throw new ArgumentException($"PlayAudioClip() failed. AudioClip is null.");
+			}
+			
 			foreach (AudioSource audioSource in _audioSources)
 			{
-				if (!audioSource.isPlaying)
+				if (audioSource.isPlaying)
 				{
-
 					audioSource.clip = audioClip;
 					audioSource.Play();
 					return;

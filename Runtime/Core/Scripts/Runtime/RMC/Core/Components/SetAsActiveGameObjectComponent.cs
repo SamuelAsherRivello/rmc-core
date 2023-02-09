@@ -3,6 +3,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
+#pragma warning disable CS0414
 namespace RMC.Core.Components
 {
     //TODO: Reename class to include ... selection

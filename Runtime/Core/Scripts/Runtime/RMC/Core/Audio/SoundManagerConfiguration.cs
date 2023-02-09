@@ -11,7 +11,7 @@ namespace RMC.Core.Audio
 	/// AudioClip on the first available AudioSource.
 	/// </summary>
 	[CreateAssetMenu( menuName = CoreConstants.PathCoreCreateAssetMenu + Title,  fileName = Title, order = CoreConstants.PriorityTools_Primary)]
-	public class SoundManagerConfiguration: ScriptableSingleton<SoundManagerConfiguration>
+	public class SoundManagerConfiguration: ScriptableObject
 	{
 	 	// Properties -------------------------------------
 		public List<AudioClip> AudioClips { get { return _audioClips; } }
