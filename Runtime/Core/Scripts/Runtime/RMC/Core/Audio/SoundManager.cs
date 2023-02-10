@@ -63,18 +63,42 @@ namespace RMC.Core.Audio
 		public void AssignAudioMixerToAllAudioSources()
 		{
 			// Put all AudioSources into one group (Thus, same volume/pitch). 
+			bool isPlayOnAwake = false;
 			foreach (AudioSource audioSource in _audioSources)
 			{
 				audioSource.outputAudioMixerGroup = MasterAudioMixerGroup;
-				
 				if (audioSource.playOnAwake)
 				{
-					audioSource.playOnAwake = false;
+					isPlayOnAwake = true;
 				}
 			}
+
+			
+			if (isPlayOnAwake)
+			{
+				Debug.LogWarning("Must manually set each AudioSource.playOnAwake = false in Unity Inspector.");
+			}
 		}
+
+
 		
-		
+		/// <summary>
+		/// Play the AudioClip by index.
+		/// </summary>
+		public void PlayAudioClip(string audioClipName)
+		{
+			int index = AudioClips.FindIndex (
+				(audioClip) => audioClip.name == audioClipName);
+
+			if (index == -1)
+			{
+				throw new Exception($"PlayAudioClip() failed for audioClipName = {audioClipName}.");
+			}
+			
+			PlayAudioClip(index);
+		}
+
+
 		/// <summary>
 		/// Play the AudioClip by index.
 		/// </summary>
@@ -87,7 +111,7 @@ namespace RMC.Core.Audio
 			}
 			catch
 			{
-				throw new ArgumentException($"PlayAudioClip() failed for index = {audioClipIndex}");
+				throw new ArgumentException($"PlayAudioClip() failed for index = {audioClipIndex}.");
 			}
 			
 			PlayAudioClip(audioClip);
@@ -98,7 +122,7 @@ namespace RMC.Core.Audio
 		/// Play the AudioClip by reference.
 		/// If all sources are occupied, nothing will play.
 		/// </summary>
-		private void PlayAudioClip(AudioClip audioClip)
+		public void PlayAudioClip(AudioClip audioClip)
 		{
 			if (audioClip == null)
 			{
@@ -107,7 +131,7 @@ namespace RMC.Core.Audio
 			
 			foreach (AudioSource audioSource in _audioSources)
 			{
-				if (audioSource.isPlaying)
+				if (!audioSource.isPlaying)
 				{
 					audioSource.clip = audioClip;
 					audioSource.Play();
