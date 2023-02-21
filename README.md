@@ -1,6 +1,4 @@
 [![npm package](https://img.shields.io/npm/v/com.rmc.rmc-core)](https://www.npmjs.com/package/com.rmc.rmc-core)
-[![openupm](https://img.shields.io/npm/v/com.rmc.rmc-core?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.rmc.rmc-core/)
-![Tests](https://github.com/SamuelAsherRivello/rmc-core/workflows/Tests/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 # RMC Core
