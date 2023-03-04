@@ -137,10 +137,14 @@ namespace RMC.Core.Helpers
          
          bool isComplete = false;
          iAlpha.Alpha = fromAlpha;
-         DOTween.To(() => iAlpha.Alpha, x => iAlpha.Alpha = x, toAlpha, duration).SetDelay(delay).SetEase(ease).onComplete = () =>
-         {
-            isComplete = true;
-         };
+         
+         DOTween.To(() => iAlpha.Alpha, x => iAlpha.Alpha = x, toAlpha, duration)
+            .SetDelay(delay)
+            .SetEase(ease)
+            .onComplete = () =>
+            {
+               isComplete = true;
+            };
          
          await UniTask.WaitWhile(() => !isComplete);
       }

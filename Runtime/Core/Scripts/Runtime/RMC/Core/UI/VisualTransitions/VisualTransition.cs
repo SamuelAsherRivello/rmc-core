@@ -5,6 +5,7 @@ using RMC.Core.Data.Types;
 using UnityEngine;
 using RMC.Core.Helpers;
 using RMC.Core.Interfaces;
+using UnityEngine.Assertions;
 
 #pragma warning disable CS0618
 namespace RMC.Core.UI.VisualTransitions
@@ -44,6 +45,9 @@ namespace RMC.Core.UI.VisualTransitions
         //  Methods ---------------------------------------
         public async UniTask ApplyVisualTransition(IVisualTransitionTarget visualTransitionTarget, Func<UniTask> action)
         {
+            Assert.IsNotNull(visualTransitionTarget);
+            Assert.IsNotNull(action);
+            
             //Half in / half out
             float halfDuration = _durationSeconds / 2;
             
@@ -65,7 +69,9 @@ namespace RMC.Core.UI.VisualTransitions
                 _easeOut);
             await UniTask.WaitForEndOfFrame();
             await UniTask.Delay((int)(_delayAfterSeconds*1000));
+            
             visualTransitionTarget.IsBlocksRaycasts = false;
+            Assert.IsNotNull(visualTransitionTarget);
         }
     }
 

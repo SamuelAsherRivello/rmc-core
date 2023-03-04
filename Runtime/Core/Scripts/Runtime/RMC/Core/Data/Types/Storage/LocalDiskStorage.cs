@@ -2,7 +2,11 @@ using System;
 using System.IO;
 using RMC.Core.Components.Attributes;
 using RMC.Core.DesignPatterns.Creational.Singleton.CustomSingleton;
+
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif //UNITY_EDITOR
 
 #pragma warning disable CS0414
 namespace RMC.Core.Data.Types.Storage
@@ -51,7 +55,13 @@ namespace RMC.Core.Data.Types.Storage
             else
             {
                 File.WriteAllText(customFilePathAttribute.Filepath, json);
+
                 isSuccess = !string.IsNullOrEmpty(json);
+                
+#if UNITY_EDITOR
+                AssetDatabase.Refresh();
+#endif //UNITY_EDITOR
+                
             }
 
             return isSuccess;

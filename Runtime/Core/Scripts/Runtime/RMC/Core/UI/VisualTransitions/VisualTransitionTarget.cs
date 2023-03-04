@@ -1,6 +1,4 @@
-using RMC.Core.Interfaces;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace RMC.Core.UI.VisualTransitions
 {

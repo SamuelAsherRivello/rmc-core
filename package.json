@@ -23,5 +23,12 @@
   "author": "rmc (github.com/SamuelAsherRivello)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "RMC Game Scaffold Sample",
+      "description": "Demonstrate the RMC Core library within a 3-Scene Game Scaffold/Template.",
+      "path": "Samples~/RMC Game Scaffold Sample"
+    }
+  ]
 }

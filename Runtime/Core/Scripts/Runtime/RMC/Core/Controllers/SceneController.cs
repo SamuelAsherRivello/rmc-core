@@ -30,7 +30,8 @@ namespace RMC.Core.Components
 		private static string _sceneNameLoadedDirectly = "";
 		private static string _sceneNamePrevious = "";
 		private VisualTransition _visualTransition;
-		private IVisualTransitionTarget _visualTransitionTarget;
+		private IVisualTransitionTarget _visualTransitionTargetPrefab;
+		private IVisualTransitionTarget _visualTransitionTargetInstance;
 
 		// Unity Methods ----------------------------------
 		protected void Awake ()
@@ -44,12 +45,12 @@ namespace RMC.Core.Components
 			SceneManager.sceneLoaded += SceneManager_OnSceneLoaded;
 		}
 
-		public void Initialize(VisualTransition visualTransition, IVisualTransitionTarget visualTransitionTarget)
+		public void Initialize(VisualTransition visualTransition, IVisualTransitionTarget visualTransitionTargetPrefab)
 		{
 			if (IsInitialized) return;
 			IsInitialized = true;
 			_visualTransition = visualTransition;
-			_visualTransitionTarget = visualTransitionTarget;
+			_visualTransitionTargetPrefab = visualTransitionTargetPrefab;
 		}
 		
 		public void Initialize()
@@ -86,13 +87,28 @@ namespace RMC.Core.Components
 				return;
 			}
 
-			await ApplyTransition(_visualTransitionTarget, async () =>
+			// BEFORE
+			var visualTransitionTargetObject = GameObject.Instantiate(_visualTransitionTargetPrefab as UnityEngine.Object);
+			_visualTransitionTargetInstance = visualTransitionTargetObject as IVisualTransitionTarget;
+			
+			//
+			MonoBehaviour visualTransitionTargetMonoBehaviour = visualTransitionTargetObject as MonoBehaviour;
+			GameObject visualTransitionTargetGameObject = visualTransitionTargetMonoBehaviour.gameObject;
+			GameObject.DontDestroyOnLoad(visualTransitionTargetGameObject);
+			
+			
+			
+			// DURING
+			await ApplyTransition(_visualTransitionTargetInstance, async () =>
 				{
-					await UniTask.WaitForEndOfFrame((MonoBehaviour)_visualTransitionTarget);
+					await UniTask.WaitForEndOfFrame((MonoBehaviour)_visualTransitionTargetInstance);
 					_sceneNamePrevious = SceneManager.GetActiveScene().name;
 					OnSceneLoadingEvent.Invoke(this, _sceneNamePrevious, sceneName);
 					SceneManager.LoadScene(sceneName);
 				});
+			
+			// AFTER
+			GameObject.Destroy(visualTransitionTargetGameObject);
 		}
 		
 		public async UniTask ApplyTransition(IVisualTransitionTarget visualTransitionTarget, Func<UniTask> action)
