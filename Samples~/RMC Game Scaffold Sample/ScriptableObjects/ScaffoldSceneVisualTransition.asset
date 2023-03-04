@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ScaffoldSceneVisualTransition
   m_EditorClassIdentifier: 
   _delayBeforeSeconds: 0
-  _durationSeconds: 2
-  _easeIn: 9
+  _durationSeconds: 0.5
+  _easeIn: 2
   _delayMidpointSeconds: 0
-  _easeOut: 2
+  _easeOut: 3
   _delayAfterSeconds: 0

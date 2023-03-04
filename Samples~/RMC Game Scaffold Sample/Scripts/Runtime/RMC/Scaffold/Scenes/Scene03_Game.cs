@@ -19,6 +19,10 @@ namespace RMC.Core.Scaffold.Scenes
         //  Fields ----------------------------------------
         [SerializeField] 
         private Scene03_GameView _view;
+
+        [SerializeField] 
+        private Player _player;
+        
         private bool _isAuthenticated;
         
 
