@@ -11,19 +11,18 @@ namespace RMC.Core.Audio
 	/// AudioClip on the first available AudioSource.
 	/// </summary>
 	[CreateAssetMenu( menuName = CoreConstants.PathCoreCreateAssetMenu + Title,  fileName = Title, order = CoreConstants.PriorityTools_Primary)]
-	public class SoundManagerConfiguration: ScriptableObject
+	public class AudioManagerConfiguration: ScriptableObject
 	{
 	 	// Properties -------------------------------------
 		public List<AudioClip> AudioClips { get { return _audioClips; } }
 		public AudioMixer AudioMixer { get { return _audioMixer; } }
 		
 		//  Fields ----------------------------------------
-		private const string Title = "SoundManagerConfiguration";
+		private const string Title = "AudioManagerConfiguration";
 
 		[SerializeField] 
 		private AudioMixer _audioMixer;
 
-		
 		[SerializeField]
 		private List<AudioClip> _audioClips = new List<AudioClip>();
 

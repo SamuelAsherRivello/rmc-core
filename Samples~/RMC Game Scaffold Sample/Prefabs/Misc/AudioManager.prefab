@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 7570194977554188054}
   - component: {fileID: 3903932036534837136}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,8 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0065e183f1e8d47409c902eea18d610f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundManagerConfiguration: {fileID: 11400000, guid: 2b2187c002c1ae447b23c94f0ae83075,
-    type: 2}
+  _audioManagerConfiguration: {fileID: 11400000, guid: 2b2187c002c1ae447b23c94f0ae83075, type: 2}
   _audioSources:
   - {fileID: 3020786749939053788}
   - {fileID: 5630440561835974069}

@@ -1016,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 407939375032015866, guid: 7db62e4b57c18bb4eab63afe782bf465, type: 3}
       propertyPath: m_fontSize
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 407939375032015866, guid: 7db62e4b57c18bb4eab63afe782bf465, type: 3}
       propertyPath: m_margin.x
@@ -1036,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 407939375032015866, guid: 7db62e4b57c18bb4eab63afe782bf465, type: 3}
       propertyPath: m_fontSizeBase
-      value: 80
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 407939375032015866, guid: 7db62e4b57c18bb4eab63afe782bf465, type: 3}
       propertyPath: m_sharedMaterial

@@ -4,6 +4,7 @@ using RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehaviour;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 namespace RMC.Core.Audio
 {
@@ -11,24 +12,24 @@ namespace RMC.Core.Audio
 	/// Maintain a list of AudioSources and play the next 
 	/// AudioClip on the first available AudioSource.
 	/// </summary>
-	public class SoundManager : SingletonMonobehaviour<SoundManager>
+	public class AudioManager : SingletonMonobehaviour<AudioManager>
 	{
 		// Properties -------------------------------------
-		public List<AudioClip> AudioClips { get { return _soundManagerConfiguration.AudioClips; } }
+		public List<AudioClip> AudioClips { get { return _audioManagerConfiguration.AudioClips; } }
 		
 		/// <summary>
-		/// LIMITATION: The current implementation of <see cref="SoundManager"/> puts all audio
+		/// LIMITATION: The current implementation of <see cref="AudioManager"/> puts all audio
 		/// into one master group. If you want separate groups (e.g. SFX vs Music), update the
 		/// implementation.
 		/// </summary>
-		public AudioMixerGroup MasterAudioMixerGroup { get { return _soundManagerConfiguration.AudioMixer.FindMatchingGroups("Master")[0]; } }
+		public AudioMixerGroup MasterAudioMixerGroup { get { return _audioManagerConfiguration.AudioMixer.FindMatchingGroups("Master")[0]; } }
 		
 		public Volume MasterVolume { get { return _masterVolume;}}
 		
 		// Fields -----------------------------------------
 		[Header("References (Project)")]
 		[SerializeField]
-		private SoundManagerConfiguration _soundManagerConfiguration = null;
+		private AudioManagerConfiguration _audioManagerConfiguration = null;
 
 		[SerializeField]
 		private List<AudioSource> _audioSources = new List<AudioSource>();
@@ -41,10 +42,10 @@ namespace RMC.Core.Audio
 			//_masterVolume = new Volume(MasterAudioMixerGroup, "MasterVolume", 1);
 			
 			// Data
-			Assert.IsNotNull(_soundManagerConfiguration, "Must have SoundManagerConfiguration instance.");
-			Assert.IsNotNull(_soundManagerConfiguration.AudioClips, "Must have AudioClips.");
-			Assert.IsTrue(_soundManagerConfiguration.AudioClips.Count > 0, "Must have AudioClips.");
-			Assert.IsNotNull(_soundManagerConfiguration.AudioMixer, "Must have AudioMixer.");
+			Assert.IsNotNull(_audioManagerConfiguration, "Must have SoundManagerConfiguration instance.");
+			Assert.IsNotNull(_audioManagerConfiguration.AudioClips, "Must have AudioClips.");
+			Assert.IsTrue(_audioManagerConfiguration.AudioClips.Count > 0, "Must have AudioClips.");
+			Assert.IsNotNull(_audioManagerConfiguration.AudioMixer, "Must have AudioMixer.");
 			
 			// Structure	
 			Assert.IsTrue(_audioSources.Count > 0, "Must have AudioSources.");

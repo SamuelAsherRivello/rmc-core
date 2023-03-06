@@ -72,12 +72,12 @@ namespace RMC.Core.Scaffold
 
         public static void PlayAudioClipClick01()
         {
-            SoundManager.Instance.PlayAudioClip("Click01");
+            AudioManager.Instance.PlayAudioClip("Click01");
         }
         
         public static void PlayAudioClipClick02()
         {
-            SoundManager.Instance.PlayAudioClip("Click02");
+            AudioManager.Instance.PlayAudioClip("Click02");
         }
     }
 }
