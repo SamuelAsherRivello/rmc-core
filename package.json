@@ -5,30 +5,30 @@
   "unity": "2021.3",
   "description": "Core library for Unity Development by Rivello Multimedia Consulting",
   "keywords": [
-    "unity",
+	"unity",
 	"unity3d",
 	"upm",
-    "rmc",
-    "utility"
+	"rmc",
+	"utility"
   ],
   "homepage": "https://github.com/rmc/rmc-core.git",
   "bugs": {
-    "url": "https://github.com/rmc/rmc-core/issues"
+	"url": "https://github.com/rmc/rmc-core/issues"
   },
   "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/rmc/rmc-core.git"
+	"type": "git",
+	"url": "git+ssh://git@github.com/rmc/rmc-core.git"
   },
   "license": "MIT",
   "author": "rmc (github.com/SamuelAsherRivello)",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "samples": [
     {
-      "displayName": "RMC Game Scaffold Sample",
-      "description": "Demonstrate the RMC Core library within a 3-Scene Game Scaffold/Template.",
-      "path": "Samples~/RMC Game Scaffold Sample"
+	"displayName": "RMC Game Scaffold Sample",
+	"description": "Demonstrate the RMC Core library within a 3-Scene Game Scaffold/Template.",
+	"path": "Samples~/RMC Game Scaffold Sample"
     }
   ]
 }
