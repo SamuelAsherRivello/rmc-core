@@ -1,7 +1,7 @@
 {
   "name": "com.rmc.rmc-core",
   "displayName": "RMC Core",
-  "version": "0.7.3",
+  "version": "0.7.31",
   "unity": "2021.3",
   "description": "Core library for Unity Development by Rivello Multimedia Consulting",
   "keywords": [
@@ -13,7 +13,7 @@
   ],
   "dependencies": {
 	"jillejr.newtonsoft.json-for-unity" : "12.0.101",
-	"com.rmc.rmc-unitask" : "2.3.3"
+	"com.rmc.rmc-unitask" : "2.3.31"
   },
   "homepage": "https://github.com/rmc/rmc-core.git",
   "bugs": {
