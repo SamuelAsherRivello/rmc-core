@@ -11,6 +11,9 @@
 	"rmc",
 	"utility"
   ],
+  "dependencies": {
+	"jillejr.newtonsoft.json-for-unity" : "12.0.101"
+  },
   "homepage": "https://github.com/rmc/rmc-core.git",
   "bugs": {
 	"url": "https://github.com/rmc/rmc-core/issues"
