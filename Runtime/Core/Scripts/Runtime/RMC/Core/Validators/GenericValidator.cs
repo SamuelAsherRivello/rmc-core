@@ -2,6 +2,10 @@
 
 namespace RMC.Core.Validators
 {
+    /// <summary>
+    /// Parent for a validator class.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class GenericValidator<T> : IValidator<T> where T : IValidatable
     {
         //  Events ----------------------------------------

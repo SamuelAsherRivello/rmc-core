@@ -3,7 +3,10 @@ using UnityEngine;
 namespace RMC.Core.Components
 {
     /// <summary>
-    /// Replace with comments...
+    /// Toggle the Active for a component.
+    ///
+    /// Useful if you want something invisible in the editor (for less clutter)
+    /// but visible at runtime. Or vice-versa.
     /// </summary>
     public class SetActiveComponent : MonoBehaviour
     {

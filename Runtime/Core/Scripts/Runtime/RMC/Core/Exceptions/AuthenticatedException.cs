@@ -3,7 +3,7 @@ using System;
 namespace RMC.Core.Exceptions
 {
     /// <summary>
-    /// Thrown when initialization is required but not complete.
+    /// Thrown when authentication is required NOT to happen yet, but has happened.
     /// </summary>
     public class AuthenticatedException : Exception
     {

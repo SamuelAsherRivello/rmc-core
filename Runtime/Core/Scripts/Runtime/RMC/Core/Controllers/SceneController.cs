@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 namespace RMC.Core.Components
 {
+	/// <summary>
+	/// Event for <see cref="SceneController"/>
+	/// </summary>
 	public class SceneControllerUnityEvent : UnityEvent<SceneController, string, string> {}
 	
 	/// <summary>

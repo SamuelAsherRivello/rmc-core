@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace RMC.Core.UI.VisualTransitions
 {
+    /// <summary>
+    /// Stores the target of the <see cref="VisualTransition"/>
+    /// </summary>
     public class VisualTransitionTarget: MonoBehaviour, IVisualTransitionTarget
     {
         //  Properties ------------------------------------

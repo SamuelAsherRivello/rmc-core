@@ -1,16 +1,22 @@
 ﻿namespace RMC.Core.UI.DialogSystem
 {
+    /// <summary>
+    /// Stores prompt display text
+    /// </summary>
     public class DialogMessageData
     {
-        public string Sending;
-        public string Sent;
-        public string Awaiting;
+        public string SendingMessage;
+        public string SentMessage;
+        public string AwaitingMessage;
 
-        public DialogMessageData(string sending, string sent, string awaiting)
+        public DialogMessageData(
+            string sendingMessage, 
+            string sentMessage, 
+            string awaitingMessage)
         {
-            Sending = sending;
-            Sent = sent;
-            Awaiting = awaiting;
+            SendingMessage = sendingMessage;
+            SentMessage = sentMessage;
+            AwaitingMessage = awaitingMessage;
         }
     }
 }

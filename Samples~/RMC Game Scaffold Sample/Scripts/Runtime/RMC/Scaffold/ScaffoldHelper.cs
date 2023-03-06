@@ -23,27 +23,16 @@ namespace RMC.Core.Scaffold
         public static async UniTask ShowDialog(
             DialogSystemView dialogSystemView, 
             string dialogTitle,
-            bool isReadWrite, 
+            DialogMessageData dialogMessageData, 
             Func<UniTask> transactionCall,
             Func<UniTask> refreshCall)
         {
             
-            // Choose text
-            DialogMessageData dialogMessageData;
-            if (isReadWrite)
-            {
-                dialogMessageData = ScaffoldConstants.ReadWriteDialogMessageData;
-            }
-            else
-            {
-                dialogMessageData = ScaffoldConstants.ReadDialogMessageData;
-            }
-            
             // Decorate text
             string functionName = ScaffoldHelper.FormatWithCapitalStarting(dialogTitle);
-            dialogMessageData.Sending = string.Format(dialogMessageData.Sending, functionName);
-            dialogMessageData.Sent = string.Format(dialogMessageData.Sent, functionName);
-            dialogMessageData.Awaiting = string.Format(dialogMessageData.Awaiting, functionName);
+            dialogMessageData.SendingMessage = string.Format(dialogMessageData.SendingMessage, functionName);
+            dialogMessageData.SentMessage = string.Format(dialogMessageData.SentMessage, functionName);
+            dialogMessageData.AwaitingMessage = string.Format(dialogMessageData.AwaitingMessage, functionName);
             
             await ShowDialog(
                 dialogSystemView, 
@@ -56,11 +45,8 @@ namespace RMC.Core.Scaffold
         /// Show "Loading..." And Send Transaction
         /// </summary>
         public static async UniTask ShowDialog(
-            
             DialogSystemView dialogSystemView, 
-            
             DialogMessageData dialogMessageData,
-            
             Func<UniTask> transactionCall, 
             Func<UniTask> refreshingCall)
         {

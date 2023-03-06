@@ -3,7 +3,9 @@
 namespace RMC.Core.Exceptions
 {
     /// <summary>
-    /// Creates elegant exception flow for unintended Switch Defaults.
+    /// Thrown when unintended Switch Defaults is reached.
+    ///
+    /// This is more elegant than alternatives.
     ///
     /// Replaces Code. From...
     /// 

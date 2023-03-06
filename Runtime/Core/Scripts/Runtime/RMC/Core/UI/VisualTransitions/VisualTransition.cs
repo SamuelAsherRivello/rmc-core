@@ -10,6 +10,9 @@ using UnityEngine.Assertions;
 #pragma warning disable CS0618
 namespace RMC.Core.UI.VisualTransitions
 {
+    /// <summary>
+    /// Stores data to support the transition between Scenes.
+    /// </summary>
     [CreateAssetMenu( menuName = CoreConstants.PathCoreCreateAssetMenu + Title, 
         fileName = Title, order = CoreConstants.PriorityTools_Primary)]
     public class VisualTransition: ScriptableObject

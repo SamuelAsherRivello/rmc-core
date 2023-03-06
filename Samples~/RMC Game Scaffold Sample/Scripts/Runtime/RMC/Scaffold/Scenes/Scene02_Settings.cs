@@ -1,6 +1,7 @@
 using RMC.Core.Helpers;
 using Cysharp.Threading.Tasks;
 using RMC.Core.Scaffold.View;
+using RMC.Core.UI.DialogSystem;
 using UnityEngine;
 
 #pragma warning disable CS4014, CS1998
@@ -20,6 +21,12 @@ namespace RMC.Core.Scaffold.Scenes
         //  Fields ----------------------------------------
         [SerializeField] 
         private Scene02_SettingsView _view;
+        
+        private static readonly DialogMessageData ToggleSettingDialogMessageData = new DialogMessageData(
+            "~ <b>{0}</b> ~\n Pending...",
+            "~ <b>{0}</b> ~\n Complete.",
+            "~ <b>{0}</b> ~\n Refreshing..."
+        );
 
         //  Unity Methods  --------------------------------
         protected async void Start()
@@ -64,6 +71,7 @@ namespace RMC.Core.Scaffold.Scenes
         {
             ScaffoldHelper.PlayAudioClipClick01();
 
+            // Demo - Change setting instantly
             ScaffoldSingleton.Instance.IsSetting01Enabled = !ScaffoldSingleton.Instance.IsSetting01Enabled;
             
             await RefreshUIAsync();
@@ -73,9 +81,20 @@ namespace RMC.Core.Scaffold.Scenes
         {
             ScaffoldHelper.PlayAudioClipClick01();
 
-            ScaffoldSingleton.Instance.IsSetting02Enabled = !ScaffoldSingleton.Instance.IsSetting02Enabled;
+            ScaffoldHelper.ShowDialog(
+                _view.DialogSystemView,
+                "Toggle Settings 02",
+                ToggleSettingDialogMessageData,
+                async () =>
+                {
+                    // Demo - Change setting with a user-facing dialog to provide nice feedback of process
+                    ScaffoldSingleton.Instance.IsSetting02Enabled = !ScaffoldSingleton.Instance.IsSetting02Enabled;
+                },
+                async () =>
+                {
+                    await RefreshUIAsync();
+                });
            
-            await RefreshUIAsync();
         }
         
         private async UniTask BackButtonUI_OnClicked()

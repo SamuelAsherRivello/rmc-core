@@ -3,7 +3,7 @@
 namespace RMC.Core.Exceptions
 {
     /// <summary>
-    /// Require user to subclass class and override method  
+    /// Thrown when user must first override subclass and override method  
     /// </summary>
     public class MustOverrideMethodException : Exception
     {

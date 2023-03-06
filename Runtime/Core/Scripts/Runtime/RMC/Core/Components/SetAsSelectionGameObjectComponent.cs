@@ -6,12 +6,11 @@ using UnityEngine;
 #pragma warning disable CS0414
 namespace RMC.Core.Components
 {
-    //TODO: Reename class to include ... selection
-    
     /// <summary>
-    /// Replace with comments...
+    /// Set the <see cref="Selection"/> to a
+    /// given <see cref="GameObject"/>. 
     /// </summary>
-    public class SetAsActiveGameObjectComponent : MonoBehaviour
+    public class SetAsSelectionGameObjectComponent : MonoBehaviour
     {
         //  Properties ------------------------------------
 

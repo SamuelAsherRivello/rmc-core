@@ -60,7 +60,7 @@ namespace RMC.Core.UI.DialogSystem
             
             // Phase 1
             // Show Text Immediately
-            DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.Sending;
+            DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SendingMessage;
             await UniTask.WaitForEndOfFrame();
            
             await _visualTransition.ApplyVisualTransition(DialogUI.ScreenMessageUI, async () =>
@@ -71,7 +71,7 @@ namespace RMC.Core.UI.DialogSystem
                     // Phase 2
                     // Show Text After Delay 
                     await WaitTransactionUniTaskDelay();
-                    DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.Sent;
+                    DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SentMessage;
                     await UniTask.WaitForEndOfFrame();
                 });
                 
@@ -82,7 +82,7 @@ namespace RMC.Core.UI.DialogSystem
                 // Phase 3
                 // Show Text After Delay
                 await WaitTransactionUniTaskDelay();
-                DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.Awaiting;
+                DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.AwaitingMessage;
                 await refreshingCall();
             });
             

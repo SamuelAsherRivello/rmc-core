@@ -81,8 +81,8 @@ namespace RMC.Core.Scaffold
         //  Initialization --------------------------------
         void ISingletonParent.OnInstantiatedChild()
         {
-            // If needed...
-            Debug.Log("ScaffoldSingleton.OnInstantiatedChild()");
+            // Capture moment of instantiation, if needed...
+            //Debug.Log("ScaffoldSingleton.OnInstantiatedChild()");
         }
 
 
