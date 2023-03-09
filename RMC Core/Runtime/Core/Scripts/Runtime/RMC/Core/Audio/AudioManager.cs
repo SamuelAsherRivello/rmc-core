@@ -42,7 +42,7 @@ namespace RMC.Core.Audio
 			//_masterVolume = new Volume(MasterAudioMixerGroup, "MasterVolume", 1);
 			
 			// Data
-			Assert.IsNotNull(_audioManagerConfiguration, "Must have SoundManagerConfiguration instance.");
+			Assert.IsNotNull(_audioManagerConfiguration, "Must have AudioManagerConfiguration instance.");
 			Assert.IsNotNull(_audioManagerConfiguration.AudioClips, "Must have AudioClips.");
 			Assert.IsTrue(_audioManagerConfiguration.AudioClips.Count > 0, "Must have AudioClips.");
 			Assert.IsNotNull(_audioManagerConfiguration.AudioMixer, "Must have AudioMixer.");
