@@ -1,11 +1,16 @@
 using System;
 using Cysharp.Threading.Tasks;
 using RMC.Core.Exceptions;
-using RMC.Core.Interfaces;
 using RMC.Core.UI.VisualTransitions;
+
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif //UNITY_EDITOR
 
 namespace RMC.Core.Components
 {
@@ -54,6 +59,10 @@ namespace RMC.Core.Components
 			IsInitialized = true;
 			_visualTransition = visualTransition;
 			_visualTransitionTargetPrefab = visualTransitionTargetPrefab;
+			
+#if UNITY_EDITOR
+			Assert.IsTrue(PrefabUtility.IsPartOfAnyPrefab((UnityEngine.Object)_visualTransitionTargetPrefab));
+#endif //UNITY_EDITOR
 		}
 		
 		public void Initialize()

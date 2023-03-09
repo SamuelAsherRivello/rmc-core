@@ -3,6 +3,11 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using RMC.Core.UI.VisualTransitions;
 using UnityEngine;
+using UnityEngine.Assertions;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif //UNITY_EDITOR
 
 #pragma warning disable CS4014, CS0618
 namespace RMC.Core.UI.DialogSystem
@@ -12,7 +17,7 @@ namespace RMC.Core.UI.DialogSystem
     //  Class Attributes ----------------------------------
 
     /// <summary>
-    /// View for <see cref="DialogUI"/>
+    /// View for <see cref="DialogUIPrefab"/>
     /// </summary>
     public class DialogSystemView : MonoBehaviour
     {
@@ -20,33 +25,40 @@ namespace RMC.Core.UI.DialogSystem
 
 
         //  Properties ------------------------------------
-        public DialogUI DialogUI { get {  return _dialogUI;} }
+        public DialogUI DialogUIPrefab { get {  return _dialogUIPrefab;} }
 
         public bool IsVisibleDialog
         {
             get
             {
-                return _dialogUI.ScreenMessageUI.IsVisible;
+                return _dialogUIPrefab.ScreenMessageUI.IsVisible;
             }
             set
             {
-                _dialogUI.ScreenMessageUI.IsVisible = value;
+                _dialogUIPrefab.ScreenMessageUI.IsVisible = value;
             }
         }
 
         //  Fields ----------------------------------------
         [SerializeField] 
-        private DialogUI _dialogUI;
+        private DialogUI _dialogUIPrefab;
 
         [SerializeField] 
         private VisualTransition _visualTransition;
         private async UniTask WaitTransactionUniTaskDelay() { await UniTask.Delay(1000, DelayType.DeltaTime, PlayerLoopTiming.LastUpdate);}
+
+        private DialogUI _dialogUIInstance;
         
         //  Unity Methods  --------------------------------
         protected void Start()
         {
-            _dialogUI.ScreenMessageUI.IsVisible = false;
-        }
+            _dialogUIPrefab.ScreenMessageUI.IsVisible = false;
+            
+#if UNITY_EDITOR
+            Assert.IsTrue(PrefabUtility.IsPartOfAnyPrefab(DialogUIPrefab), "Must be Prefab.");
+#endif //UNITY_EDITOR
+            
+       }
 
         //  Methods ---------------------------------------
 
@@ -60,10 +72,16 @@ namespace RMC.Core.UI.DialogSystem
             
             // Phase 1
             // Show Text Immediately
-            DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SendingMessage;
+            if (_dialogUIInstance != null)
+            {
+                GameObject.Destroy(_dialogUIInstance);
+            }
+            _dialogUIInstance = GameObject.Instantiate(DialogUIPrefab, gameObject.transform);
+            
+            _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SendingMessage;
             await UniTask.WaitForEndOfFrame();
            
-            await _visualTransition.ApplyVisualTransition(DialogUI.ScreenMessageUI, async () =>
+            await _visualTransition.ApplyVisualTransition(_dialogUIInstance.ScreenMessageUI, async () =>
             {
                 //(Do not await)
                 Task.Run(async () =>
@@ -71,7 +89,7 @@ namespace RMC.Core.UI.DialogSystem
                     // Phase 2
                     // Show Text After Delay 
                     await WaitTransactionUniTaskDelay();
-                    DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SentMessage;
+                    _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SentMessage;
                     await UniTask.WaitForEndOfFrame();
                 });
                 
@@ -82,8 +100,10 @@ namespace RMC.Core.UI.DialogSystem
                 // Phase 3
                 // Show Text After Delay
                 await WaitTransactionUniTaskDelay();
-                DialogUI.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.AwaitingMessage;
+                _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.AwaitingMessage;
                 await refreshingCall();
+                
+                GameObject.Destroy(_dialogUIInstance);
             });
             
         }

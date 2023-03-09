@@ -30,9 +30,9 @@
   },
   "samples": [
     {
-	"displayName": "RMC Game Scaffold Sample",
+	"displayName": "RMC Core Game Scaffold Sample",
 	"description": "Demonstrate the RMC Core library's 3-Scene Game Scaffold.",
-	"path": "Samples~/RMC Game Scaffold Sample"
+	"path": "Samples~/RMC Core Game Scaffold Sample"
     },
 	    {
 	"displayName": "RMC Core UI Sample",
