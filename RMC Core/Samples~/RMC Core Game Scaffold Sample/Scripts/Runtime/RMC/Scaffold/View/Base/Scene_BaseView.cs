@@ -17,7 +17,7 @@ namespace RMC.Core.Scaffold.View
         //  Events ----------------------------------------
 
         //  Properties ------------------------------------
-        public DialogSystemView DialogSystemView { get { return _dialogSystemView;} }
+        public DialogSystem DialogSystem { get { return _dialogSystem;} }
         public IVisualTransitionTarget SceneVisualTransitionTargetPrefab { get { return _sceneVisualTransitionTargetPrefab;} }
         public VisualTransition SceneVisualTransition { get { return _sceneVisualTransition;} }
         public SceneController SceneController { get { return _sceneController;} }
@@ -25,7 +25,7 @@ namespace RMC.Core.Scaffold.View
         //  Fields ----------------------------------------
         [Header("Base")]
         [SerializeField]
-        private DialogSystemView _dialogSystemView;
+        private DialogSystem _dialogSystem;
 
         [SerializeReference]
         private VisualTransitionTarget _sceneVisualTransitionTargetPrefab;

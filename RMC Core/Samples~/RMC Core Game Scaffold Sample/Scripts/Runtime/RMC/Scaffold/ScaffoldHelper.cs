@@ -20,23 +20,23 @@ namespace RMC.Core.Scaffold
         /// <summary>
         /// Show "Loading..." And Send Transaction
         /// </summary>
-        public static async UniTask ShowDialog(
-            DialogSystemView dialogSystemView, 
+        public static async UniTask ShowDialogAsync(
+            DialogSystem dialogSystem, 
             string dialogTitle,
-            DialogMessageData dialogMessageData, 
+            DialogData dialogData, 
             Func<UniTask> transactionCall,
             Func<UniTask> refreshCall)
         {
             
             // Decorate text
             string functionName = ScaffoldHelper.FormatWithCapitalStarting(dialogTitle);
-            dialogMessageData.SendingMessage = string.Format(dialogMessageData.SendingMessage, functionName);
-            dialogMessageData.SentMessage = string.Format(dialogMessageData.SentMessage, functionName);
-            dialogMessageData.AwaitingMessage = string.Format(dialogMessageData.AwaitingMessage, functionName);
+            dialogData.SendingMessage = string.Format(dialogData.SendingMessage, functionName);
+            dialogData.SentMessage = string.Format(dialogData.SentMessage, functionName);
+            dialogData.AwaitingMessage = string.Format(dialogData.AwaitingMessage, functionName);
             
-            await ShowDialog(
-                dialogSystemView, 
-                dialogMessageData,
+            await ShowDialogAsync(
+                dialogSystem, 
+                dialogData,
                 transactionCall,
                 refreshCall);
         }
@@ -44,14 +44,14 @@ namespace RMC.Core.Scaffold
         /// <summary>
         /// Show "Loading..." And Send Transaction
         /// </summary>
-        public static async UniTask ShowDialog(
-            DialogSystemView dialogSystemView, 
-            DialogMessageData dialogMessageData,
+        public static async UniTask ShowDialogAsync(
+            DialogSystem dialogSystem, 
+            DialogData dialogData,
             Func<UniTask> transactionCall, 
             Func<UniTask> refreshingCall)
         {
-            await dialogSystemView.ShowDialog(
-                 dialogMessageData,
+            await dialogSystem.ShowDialogAsync(
+                 dialogData,
                 transactionCall,
                 refreshingCall);
         }

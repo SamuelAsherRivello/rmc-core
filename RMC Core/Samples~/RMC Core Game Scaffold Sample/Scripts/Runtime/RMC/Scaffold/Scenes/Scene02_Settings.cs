@@ -22,7 +22,7 @@ namespace RMC.Core.Scaffold.Scenes
         [SerializeField] 
         private Scene02_SettingsView _view;
         
-        private static readonly DialogMessageData ToggleSettingDialogMessageData = new DialogMessageData(
+        private static readonly DialogData ToggleSettingDialogMessageData = new DialogData(
             "~ <b>{0}</b> ~\n Pending...",
             "~ <b>{0}</b> ~\n Complete.",
             "~ <b>{0}</b> ~\n Refreshing..."
@@ -90,8 +90,8 @@ namespace RMC.Core.Scaffold.Scenes
         {
             ScaffoldHelper.PlayAudioClipClick01();
 
-            ScaffoldHelper.ShowDialog(
-                _view.DialogSystemView,
+            ScaffoldHelper.ShowDialogAsync(
+                _view.DialogSystem,
                 "Toggle Settings 02",
                 ToggleSettingDialogMessageData,
                 async () =>

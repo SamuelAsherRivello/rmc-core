@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af061af9280c2848890866508270d2f, type: 3}
   m_Name: AudioManagerConfiguration
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: 16ac5d6006116b54dbd5bafaecaf0711, type: 2}
+  _audioMixer: {fileID: 24100000, guid: e5a1c438db99d9844bb790ecd5ab1fc7, type: 2}
   _audioClips:
-  - {fileID: 8300000, guid: c63d3d1e61051f6428d89498c554db29, type: 3}
-  - {fileID: 8300000, guid: 10a5d7271b0552341ad8f4fd948a7aa8, type: 3}
-  - {fileID: 8300000, guid: a576edf06f47902409e1afbda304a1fa, type: 3}
-  - {fileID: 8300000, guid: 00ac67a68fba16146bd3d0fc53bdba31, type: 3}
-  - {fileID: 8300000, guid: 3da0ea01c7a13674fb0dd427a7315668, type: 3}
-  - {fileID: 8300000, guid: b01d2fba9d7237845839b9ecbe2c8801, type: 3}
+  - {fileID: 8300000, guid: a3c76652edc08ce4e82aa4d6a659292f, type: 3}
+  - {fileID: 8300000, guid: 0b4e1623d47658c45beb5e986b40f6fa, type: 3}
+  - {fileID: 8300000, guid: 2923a2d7b5d016246aba621edbb87ea6, type: 3}
+  - {fileID: 8300000, guid: 4db207d1ad7f9f24f9c79126ee66a848, type: 3}
+  - {fileID: 8300000, guid: 8daef73d9c9c5ed4097d7244d153955b, type: 3}
+  - {fileID: 8300000, guid: e2a68f66a83cfd74fbbcc7b3eb8c5e3e, type: 3}

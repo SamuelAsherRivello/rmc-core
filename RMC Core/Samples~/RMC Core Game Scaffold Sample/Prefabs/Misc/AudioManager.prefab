@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0065e183f1e8d47409c902eea18d610f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioManagerConfiguration: {fileID: 11400000, guid: 2b2187c002c1ae447b23c94f0ae83075, type: 2}
+  _audioManagerConfiguration: {fileID: 11400000, guid: 9a745e5e6a43cc54ca6ad5d2cedebc68, type: 2}
   _audioSources:
   - {fileID: 3020786749939053788}
   - {fileID: 5630440561835974069}

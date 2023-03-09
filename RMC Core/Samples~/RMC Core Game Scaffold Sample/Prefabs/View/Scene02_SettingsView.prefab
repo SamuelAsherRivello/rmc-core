@@ -390,9 +390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d45f2416245484c8169940c508a0c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogSystemView: {fileID: 1080455087818526773}
+  _dialogSystem: {fileID: 1080455087818526773}
   _sceneVisualTransitionTargetPrefab: {fileID: 6072521544032140330, guid: cbdfccd2d3c2f0d499aef85fc75aba84, type: 3}
-  _sceneVisualTransition: {fileID: 11400000, guid: 871874d1d4715da45afbb80073f5bff3, type: 2}
+  _sceneVisualTransition: {fileID: 11400000, guid: e352eb5a5e790e84ca1a2259e7537317, type: 2}
   _headerTextFieldUI: {fileID: 9149522407967742726}
   _toggleSetting01ButtonUI: {fileID: 7595335953105303746}
   _toggleSetting02ButtonUI: {fileID: 2517370157120222504}
