@@ -7,7 +7,7 @@ namespace RMC.Core.UI.DialogSystem
     //  Class Attributes ----------------------------------
 
     /// <summary>
-    /// UI for <see cref="DialogSystemView"/>
+    /// UI for <see cref="DialogSystem"/>
     /// </summary>
     public class DialogUI: MonoBehaviour 
     {

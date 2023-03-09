@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using RMC.Core.Helpers;
 using RMC.Core.UI.VisualTransitions;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -19,7 +20,7 @@ namespace RMC.Core.UI.DialogSystem
     /// <summary>
     /// View for <see cref="DialogUIPrefab"/>
     /// </summary>
-    public class DialogSystemView : MonoBehaviour
+    public class DialogSystem : MonoBehaviour
     {
         //  Events ----------------------------------------
 
@@ -61,11 +62,15 @@ namespace RMC.Core.UI.DialogSystem
        }
 
         //  Methods ---------------------------------------
-
         
-        //  Event Handlers --------------------------------
-        public async UniTask ShowDialog(
-            DialogMessageData dialogMessageData,
+        /// <summary>
+        /// Show dialog
+        /// </summary>
+        /// <param name="dialogData"></param>
+        /// <param name="transactionCall"></param>
+        /// <param name="refreshingCall"></param>
+        public async UniTask ShowDialogAsync(
+            DialogData dialogData,
             Func<UniTask> transactionCall, 
             Func<UniTask> refreshingCall)
         {
@@ -76,36 +81,63 @@ namespace RMC.Core.UI.DialogSystem
             {
                 GameObject.Destroy(_dialogUIInstance);
             }
-            _dialogUIInstance = GameObject.Instantiate(DialogUIPrefab, gameObject.transform);
             
-            _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SendingMessage;
-            await UniTask.WaitForEndOfFrame();
+            _dialogUIInstance = GameObject.Instantiate(DialogUIPrefab, gameObject.transform);
+            _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogData.SendingMessage;
+            
+
            
+            //Animate
             await _visualTransition.ApplyVisualTransition(_dialogUIInstance.ScreenMessageUI, async () =>
             {
                 //(Do not await)
                 Task.Run(async () =>
                 {
+                    
                     // Phase 2
                     // Show Text After Delay 
-                    await WaitTransactionUniTaskDelay();
-                    _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.SentMessage;
-                    await UniTask.WaitForEndOfFrame();
+                    _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogData.SentMessage;
+                    
+                    //Render
+                    await UniTask.NextFrame();
+                
+                    //Wait
+                    await UniTask.Delay((int)dialogData.DelaySecondsSent * 5000);
+                    
                 });
                 
-                await UniTask.WaitForEndOfFrame();
+                //Render
+                await UniTask.NextFrame();
+                
+                //Wait
+                await UniTask.Delay((int)dialogData.DelaySecondsSending * 1000);
                 
                 await transactionCall();
                 
+                
                 // Phase 3
                 // Show Text After Delay
-                await WaitTransactionUniTaskDelay();
-                _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogMessageData.AwaitingMessage;
+                _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogData.AwaitingMessage;
+                
+                //Render
+                await UniTask.NextFrame();
+                
+                //Wait
+                await UniTask.Delay((int)dialogData.DelaySecondsAwaiting * 1000);
+                
                 await refreshingCall();
                 
                 GameObject.Destroy(_dialogUIInstance);
             });
             
         }
+
+        
+
+        
+        //  Event Handlers --------------------------------
+        
+        
+        
     }
 }

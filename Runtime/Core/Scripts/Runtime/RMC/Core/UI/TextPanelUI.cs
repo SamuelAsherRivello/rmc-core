@@ -20,11 +20,17 @@ namespace RMC.Core.UI
         {
             get
             {
-                return _canvasGroup.GetIsVisible();
+                // Cascade
+                return _canvasGroup.GetIsVisible() && 
+                        HeaderTextFieldUI.IsVisible &&
+                        BodyTextAreaUI.IsVisible;
             }
             set
             {
+                // Cascade
                 _canvasGroup.SetIsVisible(value);
+                HeaderTextFieldUI.IsVisible = value;
+                BodyTextAreaUI.IsVisible = value;
             }
         }
       

@@ -1,3 +1,4 @@
+using RMC.Core.UI;
 using TMPro;
 using UnityEngine.UI;
 
@@ -30,6 +31,20 @@ namespace RMC.Core.Helpers
         {
             TMP_Text tmp_Text = button.GetComponentInChildren<TMP_Text>();
             tmp_Text.text = text;
+        }
+        
+        public static void SetTextAreaUIText(TextAreaUI textAreaUI, bool isActive, string activeText, string inactiveText)
+        {
+            TMP_Text tmp_Text = textAreaUI.GetComponentInChildren<TMP_Text>();
+
+            if (isActive)
+            {
+                tmp_Text.text = activeText;
+            }
+            else
+            {
+                tmp_Text.text = inactiveText;
+            }
         }
     }
 }
