@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-//Keep SHORT namespace so any "RMC" class automatically accesses this
+//Keep SHORT namespace so any "RMC" class easily accesses this
 namespace RMC.Core.Extensions
 {
     /// <summary>

@@ -1,4 +1,5 @@
 using RMC.Core.Interfaces;
+using RMC.Core.Extensions;
 using RMC.Core.UI.VisualTransitions;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ namespace RMC.Core.UI
 	/// <summary>
 	/// UI element for a "Loading..." type message
 	/// </summary>
-	public class ScreenMessageUI : MonoBehaviour, IVisualTransitionTarget
+	public class ScreenMessageUI : MonoBehaviour, 
+		IIsVisible, IIsInteractable, IAlpha,
+		IVisualTransitionTarget
 	{
 		// Properties -------------------------------------
 		public bool IsVisible
@@ -28,6 +31,21 @@ namespace RMC.Core.UI
 				}
 			}
 		}
+	
+		public bool IsInteractable
+		{
+			get
+			{
+				return _canvasGroup.GetIsInteractable();
+			}
+			set
+			{
+				if (_canvasGroup != null)
+				{
+					_canvasGroup.SetIsInteractable(value);
+				}
+			}
+	}
 		
 		public float Alpha
 		{

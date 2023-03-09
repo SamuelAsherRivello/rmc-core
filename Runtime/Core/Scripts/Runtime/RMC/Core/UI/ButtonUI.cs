@@ -1,4 +1,5 @@
 using RMC.Core.Extensions;
+using RMC.Core.Interfaces;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,8 @@ namespace RMC.Core.UI
     /// <summary>
     /// Use this or subclass for EVERY UI.Button use case
     /// </summary>
-    public class ButtonUI : MonoBehaviour
+    public class ButtonUI : MonoBehaviour, 
+        IIsVisible, IIsInteractable
     {
       
         //  Properties  ---------------------------------------

@@ -6,7 +6,7 @@ namespace RMC.Core.Helpers
     /// <summary>
     /// Helper Methods
     /// </summary>
-    public static class CoreHelper
+    public static class UIHelper
     {
 
         // Fields -----------------------------------------

@@ -1,4 +1,5 @@
 using RMC.Core.Extensions;
+using RMC.Core.Interfaces;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,8 @@ namespace RMC.Core.UI
     /// <summary>
     /// Use this or subclass for EVERY UI.Button use case
     /// </summary>
-    public class TextFieldUI : MonoBehaviour
+    public class TextFieldUI : MonoBehaviour, 
+        IIsVisible, IIsInteractable
     {
       
         //  Properties  ---------------------------------------

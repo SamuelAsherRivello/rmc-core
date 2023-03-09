@@ -1,7 +1,7 @@
 {
   "name": "com.rmc.rmc-core",
   "displayName": "RMC Core",
-  "version": "0.7.31",
+  "version": "0.7.4",
   "unity": "2021.3",
   "description": "Core library for Unity Development by Rivello Multimedia Consulting",
   "keywords": [
@@ -31,8 +31,13 @@
   "samples": [
     {
 	"displayName": "RMC Game Scaffold Sample",
-	"description": "Demonstrate the RMC Core library within a 3-Scene Game Scaffold/Template.",
+	"description": "Demonstrate the RMC Core library's 3-Scene Game Scaffold.",
 	"path": "Samples~/RMC Game Scaffold Sample"
+    },
+	    {
+	"displayName": "RMC Core UI Sample",
+	"description": "Demonstrate the RMC Core library's UI.",
+	"path": "Samples~/RMC Core UI Sample"
     }
   ]
 }
