@@ -5,7 +5,7 @@
 
 # RMC Core
 
-- [How to use](#how-to-use)
+- [How To Use](#how-to-use)
 - [Install](#install)
   - [Via NPM](#via-npm)
   - [Via Git URL](#via-git-url)
@@ -84,9 +84,9 @@ Some packages include optional samples with clear use cases. To import and run t
 ## Configuration
 
 * `Unity Target` - [Standalone MAC/PC](https://support.unity.com/hc/en-us/articles/206336795-What-platforms-are-supported-by-Unity-)
-* `Unity Version` - Any 2021.x or higher
-* `Unity Rendering` - [Any](https://docs.unity3d.com/Manual/universal-render-pipeline.html)
-* `Unity Aspect Ratio` - [Game View 16x10](https://docs.unity3d.com/Manual/GameView.html)
+* `Unity Version` - Any [Unity Editor](https://unity.com/download) 2021.x or higher
+* `Unity Rendering` - Any [Unity Render Pipeline](https://docs.unity3d.com/Manual/universal-render-pipeline.html)
+* `Unity Aspect Ratio` - Any [Unity Game View](https://docs.unity3d.com/Manual/GameView.html)
 
 
 Created By
