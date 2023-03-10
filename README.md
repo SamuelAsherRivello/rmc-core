@@ -5,8 +5,6 @@
 
 # RMC Core
 
-
-
 - [How to use](#how-to-use)
 - [Install](#install)
   - [Via NPM](#via-npm)
@@ -79,8 +77,8 @@ Open `Packages/manifest.json` with your favorite text editor. Add following line
 Some packages include optional samples with clear use cases. To import and run the samples:
 
 1. Open Unity and then open `Window > Package Manager`
-1. Select This Package 
-1. Select Samples
+1. Select this package 
+1. Select samples
 1. Import
 
 ## Configuration
