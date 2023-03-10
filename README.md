@@ -1,7 +1,7 @@
 [![npm package](https://img.shields.io/npm/v/com.rmc.rmc-core)](https://www.npmjs.com/package/com.rmc.rmc-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-<img width = "400" src="https://www.samuelasherrivello.com/wp-content/uploads/2019/03/SAR.com_images_for_pages_tools_v1.png" />
+<img width = "400" src="https://github.com/SamuelAsherRivello/rmc-core/blob/main/RMC%20Core/Documentation~/com.rmc_namespace_logo.png" />
 
 # RMC Core
 
@@ -9,8 +9,8 @@
 
 - [How to use](#how-to-use)
 - [Install](#install)
-  - [via npm](#via-npm)
-  - [via Git URL](#via-git-url)
+  - [Via NPM](#via-npm)
+  - [Via Git URL](#via-git-url)
   - [Tests](#tests)
   - [Samples](#samples)
 - [Configuration](#configuration)
@@ -25,7 +25,7 @@ Import the package into your new or existing Unity Project. Enjoy!
 
 ## Install
 
-### via npm
+### Via NPM
 
 Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line to dependencies block:
 ```json
@@ -47,7 +47,7 @@ Open `Packages/manifest.json` with your favorite text editor. Add a [scoped regi
 Package should now appear in package manager.
 
 
-### via Git URL
+### Via Git URL
 
 Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
 ```json
