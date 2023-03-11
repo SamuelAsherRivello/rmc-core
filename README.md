@@ -1,7 +1,7 @@
 [![npm package](https://img.shields.io/npm/v/com.rmc.rmc-core)](https://www.npmjs.com/package/com.rmc.rmc-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-<img width = "400" src="https://github.com/SamuelAsherRivello/rmc-core/blob/main/RMC%20Core/Documentation~/com.rmc_namespace_logo.png" />
+<img width = "400" src="https://raw.githubusercontent.com/SamuelAsherRivello/rmc-core/main/RMC%20Core/Documentation~/com.rmc_namespace_logo.png" />
 
 # RMC Core
 
@@ -17,9 +17,7 @@
 
 ## How to use
 
-This is the Core library for Unity Development by Rivello Multimedia Consulting.
-
-It includes functionality for audio, custom data types, Unity UI elements, visual transitions, and more.
+Core library for Unity Development by Rivello Multimedia Consulting.
 
 Import the package into your new or existing Unity Project. Enjoy!
 
@@ -27,7 +25,16 @@ Import the package into your new or existing Unity Project. Enjoy!
 
 ### Via NPM
 
-Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line(s) to dependencies block:
+You can either use the Unity Package Manager Window (UPM) or directly edit the manifest file. The result will be the same.
+
+**UPM**
+
+To use the [Package Manager Window](https://docs.unity3d.com/Manual/upm-ui.html), first add a [Scoped Registry](https://docs.unity3d.com/2023.1/Documentation/Manual/upm-scoped.html), then click on the interface menu ( `Status Bar → (+) Icon → Add Package By Name ...` ).
+
+**Manifest File**
+
+Or to edit the `Packages/manifest.json` directly with your favorite text editor, add a scoped registry then the following line(s) to dependencies block:
+
 ```json
 {
   "scopedRegistries": [
@@ -48,9 +55,16 @@ Package should now appear in package manager.
 
 
 ### Via Git URL
-#### Manifest
 
-Open `Packages/manifest.json` with your favorite text editor. Add following line(s) to the dependencies block:
+You can either use the Unity Package Manager (UPM) Window or directly edit the manifest file. The result will be the same.
+
+**UPM**
+
+To use the [Package Manager Window](https://docs.unity3d.com/Manual/upm-ui.html) click on the interface menu ( `Status Bar → (+) Icon → Add Package From Git Url ...` ).
+
+**Manifest File**
+
+Or to edit the `Packages/manifest.json` directly with your favorite text editor, add following line(s) to the dependencies block:
 ```json
 {
   "dependencies": {
