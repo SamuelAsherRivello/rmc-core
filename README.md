@@ -49,7 +49,7 @@ Or to edit the `Packages/manifest.json` directly with your favorite text editor,
     }
   ],
   "dependencies": {
-    "com.com.rmc.rmc-core": "1.1.5"
+    "com.rmc.rmc-core": "1.1.6"
   }
 }
 ```
