@@ -25,7 +25,7 @@ Import the package into your new or existing Unity Project. Enjoy!
 
 ### Via NPM
 
-Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line to dependencies block:
+Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line(s) to dependencies block:
 ```json
 {
   "scopedRegistries": [
@@ -46,8 +46,9 @@ Package should now appear in package manager.
 
 
 ### Via Git URL
+#### Manifest
 
-Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
+Open `Packages/manifest.json` with your favorite text editor. Add following line(s) to the dependencies block:
 ```json
 {
   "dependencies": {
