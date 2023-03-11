@@ -17,7 +17,9 @@
 
 ## How to use
 
-Core library for Unity Development by Rivello Multimedia Consulting.
+This is the **Core** library for Unity Development by Rivello Multimedia Consulting.
+
+It includes functionality for audio, custom data types, reusable Unity UI elements, visual transitions, and more.
 
 Import the package into your new or existing Unity Project. Enjoy!
 
