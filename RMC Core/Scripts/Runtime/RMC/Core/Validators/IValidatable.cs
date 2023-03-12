@@ -1,13 +1,17 @@
 
 namespace RMC.Core.Validators
 {
+    public interface IValidatable 
+    {
+    }
+    
     /// <summary>
     /// 
     /// </summary>
-    public interface IValidatable
+    public interface IValidatable<T> : IValidatable
     {
         // Properties -------------------------------------
-        object Value { get; }
+        T Value { get; }
 
         // Fields -----------------------------------------
     }
