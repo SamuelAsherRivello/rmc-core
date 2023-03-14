@@ -49,7 +49,7 @@ Or to edit the `Packages/manifest.json` directly with your favorite text editor,
     }
   ],
   "dependencies": {
-    "com.rmc.rmc-core": "1.1.6"
+    "com.rmc.rmc-core": "1.2.0"
   }
 }
 ```
@@ -72,7 +72,7 @@ Or to edit the `Packages/manifest.json` directly with your favorite text editor,
   "dependencies": {
       "com.rmc.rmc-core": "https://github.com/SamuelAsherRivello/rmc-core.git",
       "com.rmc.rmc-unitask": "https://github.com/SamuelAsherRivello/rmc-unitask.git",
-      "jillejr.newtonsoft.json-for-unity": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.git#upm"
+      "com.rmc.rmc-newtonsoft.json-for-unity": "https://github.com/SamuelAsherRivello/rmc-newtonsoft.json-for-unity"
   }
 }
 ```
