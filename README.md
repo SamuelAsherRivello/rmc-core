@@ -9,6 +9,7 @@
 - [Install](#install)
   - [Via NPM](#via-npm)
   - [Via Git URL](#via-git-url)
+- [Optional](#optional)
   - [Tests](#tests)
   - [Samples](#samples)
 - [Configuration](#configuration)
@@ -74,6 +75,8 @@ Or to edit the `Packages/manifest.json` directly with your favorite text editor,
   }
 }
 ```
+
+## Optional
 
 ### Tests
 
