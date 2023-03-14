@@ -70,9 +70,7 @@ Or to edit the `Packages/manifest.json` directly with your favorite text editor,
 ```json
 {
   "dependencies": {
-      "com.rmc.rmc-core": "https://github.com/SamuelAsherRivello/rmc-core.git",
-      "com.rmc.rmc-unitask": "https://github.com/SamuelAsherRivello/rmc-unitask.git",
-      "com.rmc.rmc-newtonsoft.json-for-unity": "https://github.com/SamuelAsherRivello/rmc-newtonsoft.json-for-unity"
+      "com.rmc.rmc-core": "https://github.com/SamuelAsherRivello/rmc-core.git"
   }
 }
 ```
