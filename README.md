@@ -8,7 +8,7 @@
 - [How To Use](#how-to-use)
 - [Install](#install)
   - [Via NPM](#via-npm)
-  - [Via Git URL](#via-git-url)
+  - [Or Via Git URL](#or-via-git-url)
 - [Optional](#optional)
   - [Tests](#tests)
   - [Samples](#samples)
@@ -57,7 +57,7 @@ Or to edit the `Packages/manifest.json` directly with your favorite text editor,
 Package should now appear in package manager.
 
 
-### Via Git URL
+### Or Via Git URL
 
 You can either use the Unity Package Manager (UPM) Window or directly edit the manifest file. The result will be the same.
 
