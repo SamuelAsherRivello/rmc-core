@@ -26,6 +26,8 @@ Import the package into your new or existing Unity Project. Enjoy!
 
 ## Install
 
+You can either install [Via NPM](#via-npm) or [Via Git URL](#or-via-git-url). The result will be the same.
+
 ### Via NPM
 
 You can either use the Unity Package Manager Window (UPM) or directly edit the manifest file. The result will be the same.
