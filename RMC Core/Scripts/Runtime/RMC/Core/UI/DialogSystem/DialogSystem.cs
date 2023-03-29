@@ -53,11 +53,12 @@ namespace RMC.Core.UI.DialogSystem
         //  Unity Methods  --------------------------------
         protected void Start()
         {
-            _dialogUIPrefab.ScreenMessageUI.IsVisible = false;
             
 #if UNITY_EDITOR
-            Assert.IsTrue(PrefabUtility.IsPartOfAnyPrefab(DialogUIPrefab), "Must be Prefab.");
+            Assert.IsTrue(PrefabUtility.IsPartOfAnyPrefab(_dialogUIPrefab), "Must be Prefab.");
 #endif //UNITY_EDITOR
+            
+            _dialogUIPrefab.ScreenMessageUI.IsVisible = false;
             
        }
 
@@ -79,13 +80,13 @@ namespace RMC.Core.UI.DialogSystem
             // Show Text Immediately
             if (_dialogUIInstance != null)
             {
-                GameObject.Destroy(_dialogUIInstance);
+                GameObject.Destroy(_dialogUIInstance.gameObject);
+                _dialogUIInstance = null;
             }
             
             _dialogUIInstance = GameObject.Instantiate(DialogUIPrefab, gameObject.transform);
             _dialogUIInstance.ScreenMessageUI.TextFieldUI.Text.text = dialogData.SendingMessage;
             
-
            
             //Animate
             await _visualTransition.ApplyVisualTransition(_dialogUIInstance.ScreenMessageUI, async () =>
@@ -104,6 +105,10 @@ namespace RMC.Core.UI.DialogSystem
                     //Wait
                     await UniTask.Delay((int)dialogData.DelaySecondsSent * 5000);
                     
+                    //Destroy
+                    GameObject.Destroy(_dialogUIInstance.gameObject);
+                    _dialogUIInstance = null;
+
                 });
                 
                 //Render
@@ -126,8 +131,7 @@ namespace RMC.Core.UI.DialogSystem
                 await UniTask.Delay((int)dialogData.DelaySecondsAwaiting * 1000);
                 
                 await refreshingCall();
-                
-                GameObject.Destroy(_dialogUIInstance);
+         
             });
             
         }
