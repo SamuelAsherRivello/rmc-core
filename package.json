@@ -15,13 +15,13 @@
 	"com.rmc.rmc-newtonsoft.json-for-unity" : "10.0.302",
 	"com.rmc.rmc-unitask" : "2.3.32"
   },
-  "homepage": "https://github.com/rmc/rmc-core.git",
+  "homepage": "https://github.com/SamuelAsherRivello/rmc-core.git",
   "bugs": {
-	"url": "https://github.com/rmc/rmc-core/issues"
+	"url": "https://github.com/SamuelAsherRivello/rmc-core/issues"
   },
   "repository": {
 	"type": "git",
-	"url": "git+ssh://git@github.com/rmc/rmc-core.git"
+	"url": "git+ssh://git@github.com/SamuelAsherRivello/rmc-core.git"
   },
   "license": "MIT",
   "author": "rmc (github.com/SamuelAsherRivello)",
