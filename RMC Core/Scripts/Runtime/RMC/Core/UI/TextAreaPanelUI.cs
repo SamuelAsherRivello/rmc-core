@@ -1,6 +1,7 @@
 using RMC.Core.Extensions;
 using RMC.Core.Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RMC.Core.UI
 {
@@ -49,7 +50,15 @@ namespace RMC.Core.UI
             }
         }
 
-      
+        public ScrollRect ScrollRect
+        {
+            get
+            {
+                return _scrollRect;
+            }
+        }
+
+        
         //  Fields  ---------------------------------------
         [SerializeField] 
         private CanvasGroup _canvasGroup = null;
@@ -60,6 +69,10 @@ namespace RMC.Core.UI
         [SerializeField] 
         private TextAreaUI _bodyTextAreaUI = null;
 
+        [SerializeField] 
+        private ScrollRect _scrollRect = null;
+
+        
         //  Unity Methods  --------------------------------
     }
 }

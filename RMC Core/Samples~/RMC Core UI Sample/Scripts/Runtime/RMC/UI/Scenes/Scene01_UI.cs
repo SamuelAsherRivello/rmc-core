@@ -2,6 +2,7 @@ using RMC.Core.Helpers;
 using Cysharp.Threading.Tasks;
 using RMC.Core.UI.Samples.View;
 using UnityEngine;
+using UnityEngine.UI;
 
 #pragma warning disable CS4014, CS1998
 namespace RMC.Core.UI.Samples.Scenes
@@ -27,8 +28,16 @@ namespace RMC.Core.UI.Samples.Scenes
         protected async void Start()
         {
             // Populate UI
-            _view.TextPanelUI.HeaderTextFieldUI.Text.text = "Header TextFieldUI!";
-            _view.TextPanelUI.BodyTextAreaUI.Text.text = "Body TextAreaUI!";
+            _view.TextAreaPanelUI.HeaderTextFieldUI.Text.text = "Header TextFieldUI!";
+
+            string s = "";
+            for (int i = 0; i < 30; i++)
+            {
+                s += $"Here is {i} more \n";
+            }
+            _view.TextAreaPanelUI.BodyTextAreaUI.Text.text = $"Body TextAreaUI!{s}";
+            _view.TextAreaPanelUI.ScrollRect.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.AutoHide;
+            
             _view.TextInputFieldUI.InputField.text = "TextInputFieldUI!";
             _view.TextFieldUI.Text.text = "TextFieldUI!";
             _view.TextAreaUI.Text.text = "TextAreaUI!";

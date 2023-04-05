@@ -13,7 +13,7 @@ namespace RMC.Core.UI.Samples.View
 
         //  Properties ------------------------------------
         
-        public TextPanelUI TextPanelUI { get { return _textPanelUI;} }
+        public TextAreaPanelUI TextAreaPanelUI { get { return _textAreaPanelUI;} }
         public TextFieldUI TextFieldUI { get { return _textFieldUI;} }
         public TextAreaUI TextAreaUI { get { return _textAreaUI;} }
         
@@ -23,7 +23,7 @@ namespace RMC.Core.UI.Samples.View
         //  Fields ----------------------------------------
         
         [SerializeField]
-        private TextPanelUI _textPanelUI;
+        private TextAreaPanelUI _textAreaPanelUI;
 
         [SerializeField]
         private TextFieldUI _textFieldUI;
