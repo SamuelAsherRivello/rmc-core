@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace RMC.Core.UI
 {
     /// <summary>
-    /// Use this or subclass for EVERY UI.Button use case
+    /// Powerful wrapper recommended for all uses of <see cref="Button"/>
     /// </summary>
     public class ButtonUI : MonoBehaviour, 
         IIsVisible, IIsInteractable

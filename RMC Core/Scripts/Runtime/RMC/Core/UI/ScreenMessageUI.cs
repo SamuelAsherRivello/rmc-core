@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RMC.Core.UI
 {
 	/// <summary>
-	/// UI element for a "Loading..." type message
+	/// Powerful wrapper recommended for all uses of "Loading" messaging.
 	/// </summary>
 	public class ScreenMessageUI : MonoBehaviour, 
 		IIsVisible, IIsInteractable, IAlpha,

@@ -1,13 +1,14 @@
 using RMC.Core.Extensions;
 using RMC.Core.Interfaces;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace RMC.Core.UI
 {
     /// <summary>
-    /// Use this or subclass for EVERY use case where you want
-    /// a header text above body text.
+    /// Powerful wrapper recommended for all uses of <see cref="TMP_Text"/>
+    /// when a Header and Body are needed.
     /// </summary>
     public class TextAreaPanelUI : MonoBehaviour, 
         IIsVisible, IIsInteractable

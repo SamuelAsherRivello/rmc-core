@@ -7,7 +7,8 @@ using UnityEngine.UI;
 namespace RMC.Core.UI
 {
     /// <summary>
-    /// Use this or subclass for EVERY UI.Button use case
+    /// Powerful wrapper recommended for all uses of <see cref="Button"/>
+    /// when multiple values are required.
     /// </summary>
     public class IndexedButtonUI : MonoBehaviour, 
         IIsVisible, IIsInteractable

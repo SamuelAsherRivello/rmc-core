@@ -5,8 +5,7 @@ using UnityEngine;
 namespace RMC.Core.UI
 {
     /// <summary>
-    /// Use this or subclass for EVERY use case where you want
-    /// a header text above body text.
+    /// Powerful wrapper recommended for all uses of <see cref="TMP_InputField"/>
     /// </summary>
     public class TextInputFieldPanelUI : MonoBehaviour, 
         IIsVisible, IIsInteractable

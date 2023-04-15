@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RMC.Core.UI
 {
     /// <summary>
-    /// Use this or subclass for EVERY UI.InputField use case
+    /// Powerful wrapper recommended for all uses of <see cref="TMP_InputField"/>
     /// </summary>
     public class TextInputFieldUI : MonoBehaviour, 
         IIsVisible, IIsInteractable
