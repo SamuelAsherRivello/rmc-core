@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using RMC.Core.Exceptions;
-using RMC.Core.Interfaces;
-using UnityEngine;
 using UnityEngine.Events;
 
 namespace RMC.Core.Effects
@@ -43,7 +39,6 @@ namespace RMC.Core.Effects
         
         //  Properties ------------------------------------
         public DurationMode DurationMode { get; private set; }
-        public bool IsInitialized { get; private set; }
         public bool IsPlaying { get; private set; }
         private System.Func<string, bool, bool> _currentUpdateFunction;
 
@@ -70,6 +65,13 @@ namespace RMC.Core.Effects
             DurationMode durationMode, 
             System.Func<string, bool, bool> updateFunction)
         {
+            
+            //Empty message? Then set UI text to "" and end
+            if (string.IsNullOrEmpty(message))
+            {
+                updateFunction.Invoke("", true);
+                return;
+            }
             
             // Store as instance variables
             _currentUpdateFunction = updateFunction;

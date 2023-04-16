@@ -95,6 +95,14 @@ namespace RMC.Core.DesignPatterns.Creational.Singleton.CustomSingleton
         
         
         //  Initialization Methods-------------------------
+        public static bool IsInstantiated
+        {
+            get
+            {
+                return _instance != null;
+            }
+        }
+        
         public static T Instance
         {
             get

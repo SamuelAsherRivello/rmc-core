@@ -123,7 +123,7 @@ namespace RMC.Core.Audio
 		/// Play the AudioClip by reference.
 		/// If all sources are occupied, nothing will play.
 		/// </summary>
-		public void PlayAudioClip(AudioClip audioClip)
+		public AudioSource PlayAudioClip(AudioClip audioClip)
 		{
 			if (audioClip == null)
 			{
@@ -136,9 +136,11 @@ namespace RMC.Core.Audio
 				{
 					audioSource.clip = audioClip;
 					audioSource.Play();
-					return;
+					return audioSource;
 				}
 			}
+
+			return null;
 		}
 		
 		
