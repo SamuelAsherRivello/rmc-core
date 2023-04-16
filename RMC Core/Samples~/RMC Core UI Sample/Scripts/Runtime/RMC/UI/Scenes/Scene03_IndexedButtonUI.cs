@@ -19,8 +19,6 @@ namespace RMC.Core.UI.Samples.Scenes
         [SerializeField] 
         private IndexedButtonUI _view;
 
-        private bool _isSampleSettingEnabled = true;
-
         //  Unity Methods  --------------------------------
         protected async void Start()
         {
