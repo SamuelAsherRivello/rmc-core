@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace RMC.Core.UI.Samples.Scenes
 {
     /// <summary>
-    /// Controller for <see cref="Scene01_UIView"/>
+    /// Demo of various UI
     /// </summary>
     public class Scene01_UI : MonoBehaviour
     {
