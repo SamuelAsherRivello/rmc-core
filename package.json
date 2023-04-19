@@ -12,7 +12,6 @@
 	"utility"
   ],
   "dependencies": {
-	"com.rmc.rmc-newtonsoft.json-for-unity" : "10.0.302",
 	"com.rmc.rmc-unitask" : "2.3.32"
   },
   "homepage": "https://github.com/SamuelAsherRivello/rmc-core.git",
