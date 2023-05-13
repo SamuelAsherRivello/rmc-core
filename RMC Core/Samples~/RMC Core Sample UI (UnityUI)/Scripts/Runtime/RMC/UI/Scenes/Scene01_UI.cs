@@ -1,11 +1,11 @@
 using RMC.Core.Helpers;
 using Cysharp.Threading.Tasks;
-using RMC.Core.UI.Samples.View;
+using RMC.Core.Samples.UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 
 #pragma warning disable CS4014, CS1998
-namespace RMC.Core.UI.Samples.Scenes
+namespace RMC.Core.Samples.UI.Scenes
 {
     /// <summary>
     /// Demo of various UI

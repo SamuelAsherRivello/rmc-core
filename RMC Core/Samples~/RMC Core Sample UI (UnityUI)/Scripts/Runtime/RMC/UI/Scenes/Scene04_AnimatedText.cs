@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 #pragma warning disable CS4014, CS1998
-namespace RMC.Core.UI.Samples.Scenes
+namespace RMC.Core.Samples.UI.Scenes
 {
     /// <summary>
     /// Demo of Animated Text

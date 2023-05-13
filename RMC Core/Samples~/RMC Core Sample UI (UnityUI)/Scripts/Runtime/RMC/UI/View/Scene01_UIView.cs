@@ -1,8 +1,9 @@
+using RMC.Core.Samples.UI.Scenes;
+using RMC.Core.UI.UnityUI;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 #pragma warning disable CS1998
-namespace RMC.Core.UI.Samples.View
+namespace RMC.Core.Samples.UI.View
 {
     /// <summary>
     /// UI for <see cref="Scene01_UI"/>

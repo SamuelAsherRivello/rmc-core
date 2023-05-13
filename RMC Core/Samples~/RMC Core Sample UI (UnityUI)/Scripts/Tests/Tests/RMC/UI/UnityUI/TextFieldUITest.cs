@@ -1,6 +1,7 @@
 
 using System.Reflection;
 using NUnit.Framework;
+using RMC.Core.UI.UnityUI;
 using RMC.Core.Utilities;
 using TMPro;
 using UnityEngine;
