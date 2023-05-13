@@ -1,4 +1,4 @@
-using RMC.Core.UI;
+using RMC.Core.UI.UnityUI;
 using TMPro;
 using UnityEngine.UI;
 

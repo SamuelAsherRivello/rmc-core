@@ -30,14 +30,14 @@
   },
   "samples": [
     {
-	"displayName": "RMC Core Game Scaffold Sample",
-	"description": "Demonstrate the RMC Core library's 3-Scene Game Scaffold.",
-	"path": "RMC Core/Samples~/RMC Core Game Scaffold Sample"
+	"displayName": "RMC Core Sample Scaffold (UnityUI)",
+	"description": "Demonstrate the RMC Core Sample Scaffold (UnityUI).",
+	"path": "RMC Core/Samples~/RMC Core Sample Scaffold (UnityUI)"
     },
 	    {
-	"displayName": "RMC Core UI Sample",
-	"description": "Demonstrate the RMC Core library's UI.",
-	"path": "RMC Core/Samples~/RMC Core UI Sample"
+	"displayName": "RMC Core Sample UI (UnityUI)",
+	"description": "Demonstrate the RMC Core Sample UI (UnityUI).",
+	"path": "RMC Core/Samples~/RMC Core Sample UI (UnityUI)"
     }
   ]
 }

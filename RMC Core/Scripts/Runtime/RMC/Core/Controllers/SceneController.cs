@@ -1,7 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using RMC.Core.Exceptions;
-using RMC.Core.UI.VisualTransitions;
+using RMC.Core.UI.UnityUI.VisualTransitions;
 
 using UnityEngine;
 using UnityEngine.Assertions;
