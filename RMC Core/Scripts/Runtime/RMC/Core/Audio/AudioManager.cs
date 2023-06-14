@@ -4,7 +4,6 @@ using RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehaviour;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Audio;
-using UnityEngine.Serialization;
 
 namespace RMC.Core.Audio
 {
