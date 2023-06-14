@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RMC.Core.DesignPatterns.Creational.Singleton.CustomSingletonMonobehaviour;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -53,6 +54,19 @@ namespace RMC.Core.Audio
 		
 
 		// General Methods --------------------------------
+        /// <summary>
+        /// This is not called, except through context menu.
+        ///
+        /// </summary>
+        [ContextMenu("Assign All AudioSources From Children")]
+        public void AssignAllAllAudioSourcesFromChildren()
+        {
+            //Clear
+            List<AudioSource> audioSources = GetComponentsInChildren<AudioSource>().ToList();
+            _audioSources = audioSources;
+        }
+
+
 		/// <summary>
 		/// This is called on start.
 		///
