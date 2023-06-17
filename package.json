@@ -1,7 +1,7 @@
 {
   "name": "com.rmc.rmc-core",
   "displayName": "RMC Core",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "unity": "2021.3",
   "description": "Core library for Unity Development by Rivello Multimedia Consulting",
   "keywords": [
