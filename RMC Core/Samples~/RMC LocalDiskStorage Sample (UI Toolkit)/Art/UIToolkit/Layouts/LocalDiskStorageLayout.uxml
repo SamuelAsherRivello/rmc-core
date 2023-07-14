@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Samples/RMC%20Core/1.4.1/RMC%20LocalDiskStorage%20Sample/Art/UIToolkit/Styles/LocalDiskStorageStyles.uss?fileID=7433441132597879392&amp;guid=c599cb37e624ecd4e9363bedd4592eb8&amp;type=3#LocalDiskStorageStyles" />
+    <ui:VisualElement name="Screen" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
+        <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="Header" style="flex-grow: 1; background-color: rgb(197, 197, 197); flex-basis: 100px;">
+                <ui:Label tabindex="-1" text="TitleLabel" display-tooltip-when-elided="true" name="HeaderTitleLabel" style="font-size: 80px; -unity-text-align: middle-center; -unity-font-definition: resource(&apos;HighTower&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Body" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-basis: 100%;">
+                <ui:TextField picking-mode="Ignore" label="Details" value="..." name="DetailsTextField" class="textField" />
+                <ui:TextField picking-mode="Ignore" label="Output" value="..." name="OutputTextField" class="textField" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Footer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement name="Buttons" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: stretch; justify-content: center; align-self: stretch;">
+                    <ui:Button text="Button01" display-tooltip-when-elided="true" name="Button01" class="button" />
+                    <ui:Button text="Button02" display-tooltip-when-elided="true" name="Button02" class="button" />
+                    <ui:Button text="Button03" display-tooltip-when-elided="true" name="Button03" class="button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
