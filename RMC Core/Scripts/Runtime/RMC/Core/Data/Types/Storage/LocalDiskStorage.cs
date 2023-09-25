@@ -67,6 +67,44 @@ namespace RMC.Core.Data.Types.Storage
             return isSuccess;
         }
 
+        public bool Delete<T>()
+        {
+            CustomFilePathAttribute customFilePathAttribute = GetCustomFilePathAttributeSafe<T>();
+
+            bool isSuccess = false;
+
+            string[] paths = new[]
+            {
+                customFilePathAttribute.Filepath,
+                customFilePathAttribute.Filepath + ".meta"
+            };
+
+            for (int i = 0; i < paths.Length; i++)
+            {
+                if (File.Exists(paths[i]))
+                {
+                    File.Delete(paths[i]);
+                    isSuccess = true;
+                }
+                else
+                {
+                    Debug.LogWarning($"LocalDiskStorage.Delete() failed. " +
+                                     $"File must already exist. Path={paths[i]}");
+                }
+            }
+            
+            
+            if (isSuccess)
+            {
+#if UNITY_EDITOR
+                AssetDatabase.Refresh();
+#endif //UNITY_EDITOR
+            }
+
+            return isSuccess;
+        }
+        
+        
         public bool Has<T>()
         {
             return LoadWithoutValidation<T>() != null;

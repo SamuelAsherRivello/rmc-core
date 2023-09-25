@@ -4,8 +4,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "RMC.Core.Runtime",
-        "RMC.Core.Editor"
+        "RMC.Core.Runtime"
     ],
     "includePlatforms": [
         "Editor"
