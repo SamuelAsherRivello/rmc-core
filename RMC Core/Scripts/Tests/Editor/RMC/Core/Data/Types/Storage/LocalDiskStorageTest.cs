@@ -5,8 +5,15 @@ using UnityEngine;
 
 namespace RMC.Core.Data.Types.Storage
 {
-    [CustomFilePath("LocalDiskStorageTestSample", CustomFilePathLocation.StreamingAssetsPath)]
-    public class LocalDiskStorageTestSample
+    [CustomFilePath("LocalDiskStorageTestSample1", CustomFilePathLocation.StreamingAssetsPath)]
+    public class LocalDiskStorageTestSample1
+    {
+        [SerializeField] 
+        public int Value = 0;
+    }
+    
+    [CustomFilePath("LocalDiskStorageTestSample2", CustomFilePathLocation.StreamingAssetsPath)]
+    public class LocalDiskStorageTestSample2
     {
         [SerializeField] 
         public int Value = 0;
@@ -32,9 +39,13 @@ namespace RMC.Core.Data.Types.Storage
         public void Setup()
         {
             //Ensure deleted before testing
-            if (LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample>())
+            if (LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample1>())
             {
-                LocalDiskStorage.Instance.Delete<LocalDiskStorageTestSample>();
+                LocalDiskStorage.Instance.Delete<LocalDiskStorageTestSample1>();
+            }
+            if (LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample2>())
+            {
+                LocalDiskStorage.Instance.Delete<LocalDiskStorageTestSample2>();
             }
         }
 
@@ -42,9 +53,13 @@ namespace RMC.Core.Data.Types.Storage
         public void TearDown()
         {
             //Ensure deleted after testing (to remove console error)
-            if (LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample>())
+            if (LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample1>())
             {
-                LocalDiskStorage.Instance.Delete<LocalDiskStorageTestSample>();
+                LocalDiskStorage.Instance.Delete<LocalDiskStorageTestSample1>();
+            }
+            if (LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample2>())
+            {
+                LocalDiskStorage.Instance.Delete<LocalDiskStorageTestSample2>();
             }
         }
 
@@ -56,7 +71,7 @@ namespace RMC.Core.Data.Types.Storage
             // Arrange
        
             // Act
-            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample>();
+            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample1>();
 
             // Assert
             Assert.That(hasData, Is.False);
@@ -67,11 +82,11 @@ namespace RMC.Core.Data.Types.Storage
         public void Has_ResultIsTrue_WhenSaved()
         {
             // Arrange
-            LocalDiskStorage.Instance.Save<LocalDiskStorageTestSample> (
-                new LocalDiskStorageTestSample());
+            LocalDiskStorage.Instance.Save<LocalDiskStorageTestSample1> (
+                new LocalDiskStorageTestSample1());
             
             // Act
-            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample>();
+            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageTestSample1>();
 
             // Assert
             Assert.That(hasData, Is.True);
@@ -88,7 +103,7 @@ namespace RMC.Core.Data.Types.Storage
             // Assert
             Assert.Throws<Exception>(() =>
             {
-                var data = LocalDiskStorage.Instance.Load<LocalDiskStorageTestSample>();
+                var data = LocalDiskStorage.Instance.Load<LocalDiskStorageTestSample1>();
             });
 
         }
@@ -97,17 +112,61 @@ namespace RMC.Core.Data.Types.Storage
         public void Load_ResultIsNotNull_WhenSaved()
         {
             // Arrange
-            LocalDiskStorage.Instance.Save<LocalDiskStorageTestSample> (
-                new LocalDiskStorageTestSample());
+            LocalDiskStorage.Instance.Save<LocalDiskStorageTestSample1> (
+                new LocalDiskStorageTestSample1());
 
             // Act
-            var data = LocalDiskStorage.Instance.Load<LocalDiskStorageTestSample>();
+            var data = LocalDiskStorage.Instance.Load<LocalDiskStorageTestSample1>();
 
             // Assert
             Assert.That(data, Is.Not.Null);
             
         }
         
+        [Test]
+        public void Load_ResultIs10_WhenSavedIs10()
+        {
+            // Arrange
+            int expectedValue = 10;
+            var inputData = new LocalDiskStorageTestSample1();
+            inputData.Value = expectedValue;
+            
+            LocalDiskStorage.Instance.Save<LocalDiskStorageTestSample1> (
+                inputData);
+
+            // Act
+            var outputData = LocalDiskStorage.Instance.Load<LocalDiskStorageTestSample1>();
+
+            // Assert
+            Assert.That(outputData.Value, Is.EqualTo(expectedValue));
+            
+        }
+        
+        [Test]
+        public void Load_ResultIs10_WhenSavedIs10_B()
+        {
+            // Arrange
+            int expectedValue = 10;
+            var inputData = new LocalDiskStorageTestSample1();
+            inputData.Value = expectedValue;
+            
+            // Test that an unrelated second object doesn't mess with result
+            var inputData2 = new LocalDiskStorageTestSample2();
+            inputData2.Value = 20;
+            
+            LocalDiskStorage.Instance.Save<LocalDiskStorageTestSample1> (
+                inputData);
+
+            // Act
+            var outputData = LocalDiskStorage.Instance.Load<LocalDiskStorageTestSample1>();
+
+            // Assert
+            Assert.That(outputData.Value, Is.EqualTo(expectedValue));
+            
+        }
+
+
         //  Event Handlers --------------------------------
+            
     }
 }
