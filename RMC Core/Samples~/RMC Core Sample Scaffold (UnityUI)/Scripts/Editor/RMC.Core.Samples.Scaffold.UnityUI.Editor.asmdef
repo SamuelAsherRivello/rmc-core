@@ -2,7 +2,8 @@
     "name": "RMC.Core.Samples.Scaffold.UnityUI.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:520026446efba44408afa96abaaad7d4"
+        "GUID:520026446efba44408afa96abaaad7d4",
+        "GUID:88ef9ca8015ad6748813dc02470cb9aa"
     ],
     "includePlatforms": [
         "Editor"

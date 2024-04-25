@@ -11,8 +11,8 @@ namespace RMC.Core.Samples.Scaffold
         public const string PathMenuItemAssetsCompanyProject = "Assets/" + CompanyName + "/" + ProjectName;
         public const string PathMenuItemWindowCompanyProject = "Window/" + CompanyName + "/" + ProjectName;
         public const string CompanyName = "RMC";
-        public const string ProjectName = "Scaffold";
-        public const int PriorityMenuItem_Examples = 1;
+        public const string ProjectName = "RMC Core/Samples/Scaffold";
+        public const int PriorityMenuItem_Examples = -100;
         
 
     }
