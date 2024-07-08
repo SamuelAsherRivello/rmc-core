@@ -22,20 +22,25 @@ jobs:
 
     - name: Verify file sizes before publish
       run: |
+        echo "Verifying file sizes before publish..."
         find ./RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
 
     - name: Publish to npm
-      run: node --max_old_space_size=4096 $(which npm) publish --verbose
+      run: |
+        echo "Publishing to npm..."
+        node --max_old_space_size=4096 $(which npm) publish --verbose
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - name: Confirm published files
       run: |
+        echo "Packing and verifying published files..."
         npm pack
         tar -xvzf *.tgz
         find package/RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
 
     - name: Temporary upload of audio files for debugging
       run: |
+        echo "Uploading audio files for debugging..."
         zip -r audio_files_debug.zip ./RMC\ Core/Art/Audio/AudioClips
         curl --upload-file ./audio_files_debug.zip https://transfer.sh/audio_files_debug.zip
