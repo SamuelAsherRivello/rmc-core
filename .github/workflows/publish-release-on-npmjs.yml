@@ -20,13 +20,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Verify file sizes
+    - name: Verify file sizes before publish
       run: |
         find ./RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
-
-    - name: Increase verbosity for debugging
-      run: |
-        set -x
 
     - name: Publish to npm
       run: node --max_old_space_size=4096 $(which npm) publish --verbose
@@ -38,3 +34,8 @@ jobs:
         npm pack
         tar -xvzf *.tgz
         find package/RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
+
+    - name: Temporary upload of audio files for debugging
+      run: |
+        zip -r audio_files_debug.zip ./RMC\ Core/Art/Audio/AudioClips
+        curl --upload-file ./audio_files_debug.zip https://transfer.sh/audio_files_debug.zip
