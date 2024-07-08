@@ -17,6 +17,9 @@ jobs:
       with:
         node-version: '14'
 
+    - name: Authenticate with npm
+      run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+
     - name: Install dependencies
       run: npm install
 
