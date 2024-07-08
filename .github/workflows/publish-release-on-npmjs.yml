@@ -25,7 +25,7 @@ jobs:
         find ./RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
     
     - name: Publish to npm
-      run: npm publish --verbose
+      run: node --max_old_space_size=4096 $(which npm) publish --verbose
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
