@@ -26,7 +26,6 @@ jobs:
 
     - name: Publish to npm
       run: |
-        echo "Publishing to npm..."
         retries=5
         count=0
         until [ $count -ge $retries ]
@@ -38,6 +37,10 @@ jobs:
         done
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Display npm debug log
+      if: failure()
+      run: cat /home/runner/.npm/_logs/$(date +%Y-%m-%dT%H_%M_%S)Z-debug.log
 
     - name: Confirm published files
       run: |
