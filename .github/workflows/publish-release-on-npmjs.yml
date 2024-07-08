@@ -23,7 +23,11 @@ jobs:
     - name: Verify file sizes
       run: |
         find ./RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
-    
+
+    - name: Increase verbosity for debugging
+      run: |
+        set -x
+
     - name: Publish to npm
       run: node --max_old_space_size=4096 $(which npm) publish --verbose
       env:
