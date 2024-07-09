@@ -1,6 +1,0 @@
-Source Url: 
-* https://gist.github.com/ruccho/9031233f522c60b02409d01dfbdf83b4
-
-Changelog: 
-* (Maybe) remove some unneeded files
-* Moved to \Assets\...\3rdParty
