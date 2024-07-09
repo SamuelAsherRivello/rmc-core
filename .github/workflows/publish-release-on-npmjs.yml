@@ -9,49 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Set up Node.js
+    - name: Use Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '14'
 
-    - name: Authenticate with npm
-      run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-
     - name: Install dependencies
       run: npm install
 
-    - name: Verify file sizes before publish
-      run: |
-        find ./RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
-
     - name: Publish to npm
-      run: |
-        retries=5
-        count=0
-        until [ $count -ge $retries ]
-        do
-          node --max_old_space_size=4096 $(which npm) publish --verbose && break
-          count=$((count+1))
-          echo "Retrying... ($count/$retries)"
-          sleep 60
-        done
+      run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-    - name: Display npm debug log
-      if: failure()
-      run: cat /home/runner/.npm/_logs/$(date +%Y-%m-%dT%H_%M_%S)Z-debug.log
-
-    - name: Confirm published files
-      run: |
-        npm pack
-        tar -xvzf *.tgz
-        find package/RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
-
-    - name: Temporary upload of audio files for debugging
-      run: |
-        zip -r audio_files_debug.zip ./RMC\ Core/Art/Audio/AudioClips
-        curl --upload-file ./audio_files_debug.zip https://transfer.sh/audio_files_debug.zip
