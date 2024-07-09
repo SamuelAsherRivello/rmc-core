@@ -11,15 +11,22 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Use Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+
+    - name: Authenticate with npm
+      run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
     - name: Install dependencies
       run: npm install
 
     - name: Publish to npm
-      run: npm publish
+      run: npm publish --verbose
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    - name: Display npm debug log
+      if: failure()
+      run: cat $(ls -Art /home/runner/.npm/_logs | tail -n 1)
