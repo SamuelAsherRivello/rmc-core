@@ -1,6 +1,0 @@
-Source Url: 
-* https://docs.unity3d.com/Manual/com.unity.textmeshpro.html
-
-Changelog: 
-* (Maybe) remove some unneeded files
-* Moved to \Assets\...\3rdParty
