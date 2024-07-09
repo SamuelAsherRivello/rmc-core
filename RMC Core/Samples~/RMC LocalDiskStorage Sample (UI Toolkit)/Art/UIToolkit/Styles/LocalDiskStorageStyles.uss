@@ -1,0 +1,11 @@
+.button {
+    font-size: 80px;
+    -unity-font-definition: resource('HighTower');
+}
+
+.textField {
+    height: 382px;
+    font-size: 80px;
+    -unity-font-definition: resource('HighTower');
+    -unity-text-align: middle-left;
+}
