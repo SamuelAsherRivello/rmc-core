@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -25,13 +24,10 @@ jobs:
 
     - name: Verify file sizes before publish
       run: |
-        echo "Verifying file sizes before publish..."
-        find ./RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
+        find ./RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec ls -lh {} \; | awk '$5 < 20 {print "Audio filesize too small for " $9}'
 
     - name: Publish to npm
-      run: |
-        echo "Publishing to npm..."
-        npm publish --verbose
+      run: npm publish --verbose
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -41,7 +37,6 @@ jobs:
 
     - name: Verify published package
       run: |
-        echo "Verifying published package..."
         npm pack
         tar -xvzf *.tgz
-        find package/RMC\ Core/Art/Audio/AudioClips -type f -exec ls -lh {} \;
+        find package/RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec ls -lh {} \; | awk '$5 < 20 {print "Audio filesize too small for " $9}'
