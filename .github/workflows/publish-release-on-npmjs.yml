@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -24,7 +25,8 @@ jobs:
 
     - name: Verify file sizes before publish
       run: |
-        find ./RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec ls -lh {} \; | awk '$5 < 20 {print "Audio filesize too small for " $9}'
+        find ./RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec ls -lh {} \;
+        find ./RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec sh -c 'if [ $(stat -c%s "$1") -lt 20000 ]; then echo "Audio filesize too small for $1"; fi' sh {} \;
 
     - name: Publish to npm
       run: npm publish --verbose
@@ -39,4 +41,5 @@ jobs:
       run: |
         npm pack
         tar -xvzf *.tgz
-        find package/RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec ls -lh {} \; | awk '$5 < 20 {print "Audio filesize too small for " $9}'
+        find package/RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec ls -lh {} \;
+        find package/RMC\ Core/Art/Audio/AudioClips -type f \( -name "*.wav" -o -name "*.mp3" \) -exec sh -c 'if [ $(stat -c%s "$1") -lt 20000 ]; then echo "Audio filesize too small for $1"; fi' sh {} \;
