@@ -1,32 +1,32 @@
 {
   "name": "com.rmc.rmc-core",
   "displayName": "RMC Core",
-  "version": "1.6.6",
+  "version": "1.6.7",
   "unity": "2022.3",
   "description": "Core library for Unity Development by Rivello Multimedia Consulting",
   "keywords": [
-	"unity",
-	"unity3d",
-	"upm",
-	"rmc",
-	"utility"
+    "unity",
+    "unity3d",
+    "upm",
+    "rmc",
+    "utility"
   ],
   "dependencies": {
-	"com.rmc.rmc-newtonsoft.json-for-unity" : "10.0.302",
-	"com.rmc.rmc-unitask" : "2.3.32"
+    "com.rmc.rmc-newtonsoft.json-for-unity": "10.0.302",
+    "com.rmc.rmc-unitask": "2.3.32"
   },
   "homepage": "https://github.com/SamuelAsherRivello/rmc-core.git",
   "bugs": {
-	"url": "https://github.com/SamuelAsherRivello/rmc-core/issues"
+    "url": "https://github.com/SamuelAsherRivello/rmc-core/issues"
   },
   "repository": {
-	"type": "git",
-	"url": "git+ssh://git@github.com/SamuelAsherRivello/rmc-core.git"
+    "type": "git",
+    "url": "git+ssh://git@github.com/SamuelAsherRivello/rmc-core.git"
   },
   "license": "MIT",
   "author": "rmc (github.com/SamuelAsherRivello)",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "samples": [
     {
@@ -34,7 +34,7 @@
       "description": "Demonstrate the RMC Core Sample Scaffold (UnityUI).",
       "path": "RMC Core/Samples~/RMC Core Sample Scaffold (UnityUI)"
     },
-	    {
+    {
       "displayName": "RMC Core Sample UI (UnityUI)",
       "description": "Demonstrate the RMC Core Sample UI (UnityUI).",
       "path": "RMC Core/Samples~/RMC Core Sample UI (UnityUI)"
