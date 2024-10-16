@@ -1,7 +1,6 @@
 ﻿
 using System;
 using Cysharp.Threading.Tasks;
-using RMC.Core.Audio;
 using RMC.Core.UI.UnityUI.DialogSystem;
 
 namespace RMC.Core.Samples.Scaffold
@@ -58,12 +57,14 @@ namespace RMC.Core.Samples.Scaffold
 
         public static void PlayAudioClipClick01()
         {
-            AudioManager.Instance.PlayAudioClip("Click01");
+            //Import RMC Audio First: https://github.com/SamuelAsherRivello/rmc-audio
+            //AudioManager.Instance.PlayAudioClip("Click01");
         }
         
         public static void PlayAudioClipClick02()
         {
-            AudioManager.Instance.PlayAudioClip("Click02");
+            //Import RMC Audio First: https://github.com/SamuelAsherRivello/rmc-audio
+            //AudioManager.Instance.PlayAudioClip("Click02");
         }
     }
 }
