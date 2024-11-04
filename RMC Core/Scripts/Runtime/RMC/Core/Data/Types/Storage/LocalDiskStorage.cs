@@ -1,8 +1,7 @@
 using System;
 using System.IO;
 using RMC.Core.Components.Attributes;
-using RMC.Core.DesignPatterns.Creational.Singleton.CustomSingleton;
-
+using RMC.Core.DesignPatterns.Creational.Singletons;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
