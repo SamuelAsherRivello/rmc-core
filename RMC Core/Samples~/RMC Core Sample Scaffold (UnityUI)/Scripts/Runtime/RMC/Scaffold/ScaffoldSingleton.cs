@@ -1,7 +1,7 @@
 ﻿
 using RMC.Core.Components.Attributes;
 using RMC.Core.Data.Types.Storage;
-using RMC.Core.DesignPatterns.Creational.Singleton.CustomSingleton;
+using RMC.Core.DesignPatterns.Creational.Singletons;
 using UnityEngine;
 
 namespace RMC.Core.Samples.Scaffold
@@ -14,7 +14,7 @@ namespace RMC.Core.Samples.Scaffold
     public class ScaffoldLocalDiskStorage
     {
         public bool IsAuthenticated = false;
-    }
+    }   
 
     /// <summary>
     /// Demo of functionality that persists across scenes

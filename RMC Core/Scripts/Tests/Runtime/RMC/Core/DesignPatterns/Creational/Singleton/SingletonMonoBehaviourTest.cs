@@ -13,6 +13,10 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         {
             //  Properties ------------------------------------
             public int Value { get; set; } = 0;
+            
+            public override void OnInitialized()
+            {
+            }
 
         }
 
@@ -21,19 +25,15 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         [SetUp]
         public void Setup()
         {
-            if (SampleSingletonMonoBehaviour.IsInstantiated)
-            {
-                SampleSingletonMonoBehaviour.Dispose();
-            }
+            //Ensure clean state between tests
+            SampleSingletonMonoBehaviour.Dispose();
         }
 
         [TearDown]
         public void TearDown()
         {
-            if (SampleSingletonMonoBehaviour.IsInstantiated)
-            {
-                SampleSingletonMonoBehaviour.Dispose();
-            }
+            //Ensure clean state between tests
+            SampleSingletonMonoBehaviour.Dispose();
         }
 
 
@@ -54,8 +54,8 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
             // Assert
             Assert.AreEqual(0, result, "Result is 0");
             
-            // Make stale
-            singletonInstance.Value = 1;
+            // Make stale (For future test)
+            singletonInstance.Value = 123;
         }
         
         /// <summary>
@@ -72,6 +72,9 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
 
             // Assert
             Assert.AreEqual(0, result, "Result is 0");
+            
+            // Make stale (For future test)
+            singletonInstance.Value = 456;
         }
         
         
