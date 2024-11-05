@@ -1,0 +1,16 @@
+{
+    "name": "RMC.Core.Samples.SerializeInterface.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8d0b5587a0a8ae741afbfe3a79c2872a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
