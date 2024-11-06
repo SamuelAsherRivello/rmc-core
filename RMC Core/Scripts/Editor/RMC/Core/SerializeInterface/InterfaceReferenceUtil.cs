@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
+//NOTE: Promote visibility, thus avoid any namespace
 public class InterfaceReferenceUtil {
     static GUIStyle labelStyle;
 

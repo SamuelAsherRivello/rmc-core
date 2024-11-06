@@ -6,10 +6,10 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     /// 
     /// </summary>
     [Category("RMC.Core.DesignPatterns")]
-    public class SingletonTest
+    public class SingletonPlayModeTest
     {
         //  Classes ----------------------------------------
-        private class SampleSingleton : Singleton<SampleSingleton>, ISingletonParent
+        private class SampleSingletonPlayMode : SingletonPlayMode<SampleSingletonPlayMode>, ISingletonParent
         {
             //  Properties ------------------------------------
             public int Value { get; set; } = 0;
@@ -40,9 +40,9 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         [TearDown]
         public void TearDown()
         {
-            if (SampleSingleton.IsInstantiated)
+            if (SampleSingletonPlayMode.IsInstantiated)
             {
-                SampleSingleton.Dispose();
+                SampleSingletonPlayMode.Dispose();
             }
         }
 
@@ -56,16 +56,16 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Value_ResultIsZero_WhenDefault_01()
         {
             // Arrange
-            SampleSingleton singletonInstance = SampleSingleton.Instance;
+            SampleSingletonPlayMode singletonPlayModeInstance = SampleSingletonPlayMode.Instance;
 
             // Act
-            int result = singletonInstance.Value;
+            int result = singletonPlayModeInstance.Value;
 
             // Assert
             Assert.AreEqual(0, result, "Result is 0");
             
             // Make stale
-            singletonInstance.Value = 1;
+            singletonPlayModeInstance.Value = 1;
         }
         
         /// <summary>
@@ -75,10 +75,10 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Value_ResultIsZero_WhenDefault_02()
         {
             // Arrange
-            SampleSingleton singletonInstance = SampleSingleton.Instance;
+            SampleSingletonPlayMode singletonPlayModeInstance = SampleSingletonPlayMode.Instance;
 
             // Act
-            int result = singletonInstance.Value;
+            int result = singletonPlayModeInstance.Value;
 
             // Assert
             Assert.AreEqual(0, result, "Result is 0");
@@ -89,10 +89,10 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void OnInstantiatedChildWasCalled_IsTrue_WhenDefault()
         {
             // Arrange
-            SampleSingleton singletonInstance = SampleSingleton.Instance;
+            SampleSingletonPlayMode singletonPlayModeInstance = SampleSingletonPlayMode.Instance;
 
             // Act
-            bool result = singletonInstance.OnInstantiatedChildWasCalled;
+            bool result = singletonPlayModeInstance.OnInstantiatedChildWasCalled;
 
             // Assert
             Assert.IsTrue(result, "Result is true");
@@ -106,8 +106,8 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Instance_IsSame_WhenAccessedMultipleTimes()
         {
             // Act
-            SampleSingleton firstInstance = SampleSingleton.Instance;
-            SampleSingleton secondInstance = SampleSingleton.Instance;
+            SampleSingletonPlayMode firstInstance = SampleSingletonPlayMode.Instance;
+            SampleSingletonPlayMode secondInstance = SampleSingletonPlayMode.Instance;
 
             // Assert
             Assert.AreSame(firstInstance, secondInstance, "Singleton instance is the same across multiple accesses");
@@ -120,11 +120,11 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void IsInstantiated_IsFalse_AfterDispose()
         {
             // Arrange
-            SampleSingleton singletonInstance = SampleSingleton.Instance;
+            SampleSingletonPlayMode singletonPlayModeInstance = SampleSingletonPlayMode.Instance;
 
             // Act
-            SampleSingleton.Dispose();
-            bool isInstantiatedAfterDispose = SampleSingleton.IsInstantiated;
+            SampleSingletonPlayMode.Dispose();
+            bool isInstantiatedAfterDispose = SampleSingletonPlayMode.IsInstantiated;
 
             // Assert
             Assert.IsFalse(isInstantiatedAfterDispose, "Singleton IsInstantiated is false after Dispose is called");
@@ -137,11 +137,11 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Value_IsRetained_WhenModified()
         {
             // Arrange
-            SampleSingleton singletonInstance = SampleSingleton.Instance;
-            singletonInstance.Value = 42;
+            SampleSingletonPlayMode singletonPlayModeInstance = SampleSingletonPlayMode.Instance;
+            singletonPlayModeInstance.Value = 42;
 
             // Act
-            int result = SampleSingleton.Instance.Value;
+            int result = SampleSingletonPlayMode.Instance.Value;
 
             // Assert
             Assert.AreEqual(42, result, "Modified value is retained across accesses");

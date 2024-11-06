@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+//NOTE: Promote visibility, thus avoid any namespace
 [CustomPropertyDrawer(typeof(RequireInterfaceAttribute))]
 public class RequireInterfaceDrawer : PropertyDrawer {
     RequireInterfaceAttribute RequireInterfaceAttribute => (RequireInterfaceAttribute)attribute;

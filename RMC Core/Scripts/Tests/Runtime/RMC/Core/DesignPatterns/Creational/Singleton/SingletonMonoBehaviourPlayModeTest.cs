@@ -6,10 +6,10 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     /// 
     /// </summary>
     [Category("RMC.Core.DesignPatterns")]
-    public class SingletonMonoBehaviourTest
+    public class SingletonMonoBehaviourPlayModeTest
     {
         //  Classes ----------------------------------------
-        private class SampleSingletonMonoBehaviour : SingletonMonoBehaviour<SampleSingletonMonoBehaviour>
+        private class SampleSingletonMonoBehaviourPlayMode : SingletonMonoBehaviourPlayMode<SampleSingletonMonoBehaviourPlayMode>
         {
             //  Properties ------------------------------------
             public int Value { get; set; } = 0;
@@ -26,14 +26,14 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Setup()
         {
             //Ensure clean state between tests
-            SampleSingletonMonoBehaviour.Dispose();
+            SampleSingletonMonoBehaviourPlayMode.Dispose();
         }
 
         [TearDown]
         public void TearDown()
         {
             //Ensure clean state between tests
-            SampleSingletonMonoBehaviour.Dispose();
+            SampleSingletonMonoBehaviourPlayMode.Dispose();
         }
 
 
@@ -46,7 +46,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Value_ResultIsZero_WhenDefault_01()
         {
             // Arrange
-            SampleSingletonMonoBehaviour singletonInstance = SampleSingletonMonoBehaviour.Instance;
+            SampleSingletonMonoBehaviourPlayMode singletonInstance = SampleSingletonMonoBehaviourPlayMode.Instance;
 
             // Act
             int result = singletonInstance.Value;
@@ -65,7 +65,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Value_ResultIsZero_WhenDefault_02()
         {
             // Arrange
-            SampleSingletonMonoBehaviour singletonInstance = SampleSingletonMonoBehaviour.Instance;
+            SampleSingletonMonoBehaviourPlayMode singletonInstance = SampleSingletonMonoBehaviourPlayMode.Instance;
 
             // Act
             int result = singletonInstance.Value;
@@ -85,8 +85,8 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Instance_IsSame_WhenAccessedMultipleTimes()
         {
             // Act
-            SampleSingletonMonoBehaviour firstInstance = SampleSingletonMonoBehaviour.Instance;
-            SampleSingletonMonoBehaviour secondInstance = SampleSingletonMonoBehaviour.Instance;
+            SampleSingletonMonoBehaviourPlayMode firstInstance = SampleSingletonMonoBehaviourPlayMode.Instance;
+            SampleSingletonMonoBehaviourPlayMode secondInstance = SampleSingletonMonoBehaviourPlayMode.Instance;
 
             // Assert
             Assert.AreSame(firstInstance, secondInstance, "Singleton instance is the same across multiple accesses");
@@ -99,11 +99,11 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void IsInstantiated_IsFalse_AfterDispose()
         {
             // Arrange
-            SampleSingletonMonoBehaviour singletonInstance = SampleSingletonMonoBehaviour.Instance;
+            SampleSingletonMonoBehaviourPlayMode singletonInstance = SampleSingletonMonoBehaviourPlayMode.Instance;
 
             // Act
-            SampleSingletonMonoBehaviour.Dispose();
-            bool isInstantiatedAfterDispose = SampleSingletonMonoBehaviour.IsInstantiated;
+            SampleSingletonMonoBehaviourPlayMode.Dispose();
+            bool isInstantiatedAfterDispose = SampleSingletonMonoBehaviourPlayMode.IsInstantiated;
 
             // Assert
             Assert.IsFalse(isInstantiatedAfterDispose, "Singleton IsInstantiated is false after Dispose is called");
@@ -116,11 +116,11 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         public void Value_IsRetained_WhenModified()
         {
             // Arrange
-            SampleSingletonMonoBehaviour singletonInstance = SampleSingletonMonoBehaviour.Instance;
+            SampleSingletonMonoBehaviourPlayMode singletonInstance = SampleSingletonMonoBehaviourPlayMode.Instance;
             singletonInstance.Value = 42;
 
             // Act
-            int result = SampleSingletonMonoBehaviour.Instance.Value;
+            int result = SampleSingletonMonoBehaviourPlayMode.Instance.Value;
 
             // Assert
             Assert.AreEqual(42, result, "Modified value is retained across accesses");

@@ -1,0 +1,28 @@
+.button {
+    -unity-font-definition: resource('HighTower');
+}
+
+.textField {
+    height: 45%;
+    -unity-font-definition: resource('HighTower');
+    -unity-text-align: middle-left;
+    align-content: auto;
+    justify-content: flex-start;
+}
+
+.unity-base-field__input {
+    height: 100%;
+    -unity-text-align: middle-left;
+    white-space: pre-wrap;
+    flex-grow: 1;
+}
+
+.unity-text-element {
+    font-size: 60px;
+}
+
+.unity-base-text-field__multiline-container {
+    flex-grow: 1;
+    flex-wrap: wrap;
+    height: 100%;
+}

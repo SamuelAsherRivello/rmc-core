@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 #pragma warning disable CS4014, CS1998
 namespace RMC.Core.Samples.LocalDiskStorageView
 {
-    [CustomFilePath("LocalDiskStorageDataSample", CustomFilePathLocation.StreamingAssetsPath)]
+    [CustomFilePath("LocalDiskStorageDataSample", CustomFilePathLocation.PersistentDataPath)]
     public class LocalDiskStorageDataSample
     {
         [SerializeField] 
@@ -41,7 +41,16 @@ namespace RMC.Core.Samples.LocalDiskStorageView
             
             // Body
             _view.DetailsTextField.label = "Details";
-            _view.DetailsTextField.value = "* Load data from disk.\n* Save data to disk.\n* Increment data.\n";
+
+            if (LocalDiskStoragePlayMode.Instance.IsSupportedOnCurrentPlatform())
+            {
+                _view.DetailsTextField.value = "* Load data from disk.\n* Save data to disk.\n* Increment data.\n";
+            }
+            else
+            {
+                _view.DetailsTextField.value = LocalDiskStoragePlayMode.NotSupportedWarning;
+            }
+          
             //
             _view.OutputTextField.label = "Output";
             _view.OutputTextField.value = "";
@@ -64,7 +73,7 @@ namespace RMC.Core.Samples.LocalDiskStorageView
         //  Methods ---------------------------------------
         private async UniTask RefreshUIAsync()
         {
-            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageDataSample>();
+            bool hasData = LocalDiskStoragePlayMode.Instance.Has<LocalDiskStorageDataSample>();
             
             if (hasData && _localDiskStorageDataSample != null)
             {
@@ -83,12 +92,12 @@ namespace RMC.Core.Samples.LocalDiskStorageView
         //  Event Handlers --------------------------------
         private async void LoadButton_OnClicked()
         {
-            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageDataSample>();
+            bool hasData = LocalDiskStoragePlayMode.Instance.Has<LocalDiskStorageDataSample>();
 
             if (hasData)
             {
                 _localDiskStorageDataSample = 
-                    LocalDiskStorage.Instance.Load<LocalDiskStorageDataSample>();
+                    LocalDiskStoragePlayMode.Instance.Load<LocalDiskStorageDataSample>();
             }
             
             
@@ -102,7 +111,7 @@ namespace RMC.Core.Samples.LocalDiskStorageView
                 _localDiskStorageDataSample = new LocalDiskStorageDataSample();
             }
             
-            LocalDiskStorage.Instance.Save<LocalDiskStorageDataSample>(_localDiskStorageDataSample);
+            LocalDiskStoragePlayMode.Instance.Save<LocalDiskStorageDataSample>(_localDiskStorageDataSample);
             
             await RefreshUIAsync();
         }

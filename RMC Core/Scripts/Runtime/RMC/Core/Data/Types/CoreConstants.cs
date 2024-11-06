@@ -23,7 +23,7 @@ namespace RMC.Core.Data.Types
         ///////////////////////////////////////////
 
         // Skipping ">10" shows a horizontal divider line.
-        public const int PriorityTools_Primary = 10;
+        public const int PriorityTools_Primary = -1000;
         public const int PriorityTools_Secondary = 100;
         public const int PriorityTools_Examples = 1000;
         public const int PriorityTools_Examples_Sub = 5000;

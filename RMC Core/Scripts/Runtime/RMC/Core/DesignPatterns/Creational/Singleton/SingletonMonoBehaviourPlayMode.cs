@@ -5,7 +5,7 @@
 namespace RMC.Core.DesignPatterns.Creational.Singletons
 {
     //  Parent Class  --------------------------------------
-    public abstract class SingletonMonoBehaviour : MonoBehaviour
+    public abstract class SingletonMonoBehaviourPlayMode : MonoBehaviour
     {
         //  Properties ------------------------------------
         public static bool IsShuttingDown { get; private set; } = false;
@@ -34,7 +34,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     /// It includes several common features for managing the singleton lifecycle, ensuring only one instance exists,
     /// and handling Unity-specific lifecycle events like play mode changes.
     /// </summary>
-    public abstract class SingletonMonoBehaviour<T> : SingletonMonoBehaviour where T : MonoBehaviour
+    public abstract class SingletonMonoBehaviourPlayMode<T> : SingletonMonoBehaviourPlayMode where T : MonoBehaviour
     {
         //  Logging ---------------------------------------
         private static readonly bool IsDebug = false;
@@ -108,7 +108,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
                     }
 
                     _IsInitializing = false;
-                    (_Instance as SingletonMonoBehaviour)?.OnInitialized();
+                    (_Instance as SingletonMonoBehaviourPlayMode)?.OnInitialized();
                     return _Instance;
                 }
             }
@@ -123,7 +123,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         private static string CustomName => $"SingletonMonoBehaviour<{typeof(T).Name}>";
 
         //  Initialization  -------------------------------
-        private static void ConstructIfNeeded(SingletonMonoBehaviour<T> inInstance)
+        private static void ConstructIfNeeded(SingletonMonoBehaviourPlayMode<T> inInstance)
         {
             lock (_InstanceLock)
             {
@@ -131,7 +131,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
                 {
                     DebugLog($"ConstructIfNeeded run for {typeof(T)}");
                     _Instance = inInstance as T;
-                    (_Instance as SingletonMonoBehaviour)?.OnInitialized();
+                    (_Instance as SingletonMonoBehaviourPlayMode)?.OnInitialized();
                 }
                 else if (_Instance != null && !_IsInitializing)
                 {

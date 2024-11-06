@@ -1,4 +1,3 @@
-
 using System;
 using RMC.Core.Exceptions;
 using UnityEngine;
@@ -14,73 +13,81 @@ namespace RMC.Core.Components.Attributes
         StreamingAssetsPath
     }
 
-
     /// <summary>
     /// Used to add relative paths to objects. 
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class CustomFilePathAttribute : Attribute
     {
-        
-        //  Properties ------------------------------------
-        public string Filepath { get { return filepath; } }
-        public CustomFilePathLocation Location { get { return m_Location; } }
+        // Properties ------------------------------------
+        public string Filepath => filepath;
+        public CustomFilePathLocation Location => m_Location;
 
         private string filepath
         {
             get
             {
-                if (this.m_FilePath == null && this.m_RelativePath != null)
+                if (m_FilePath == null && m_RelativePath != null)
                 {
-                    this.m_FilePath = CustomFilePathAttribute.CombineFilePath(this.m_RelativePath, this.m_Location);
-                    this.m_RelativePath = (string)null;
+                    m_FilePath = CombineFilePath(m_RelativePath, m_Location);
+                    m_RelativePath = null;
                 }
 
-                return this.m_FilePath;
+                return m_FilePath;
             }
         }
 
-        
-        //  Fields ----------------------------------------
+        // Fields ----------------------------------------
         private string m_FilePath;
         private string m_RelativePath;
         private CustomFilePathLocation m_Location;
 
-        
-        //  Initialization Methods-------------------------
+        // Initialization Methods -------------------------
         public CustomFilePathAttribute(string relativePath, CustomFilePathLocation location)
         {
-            this.m_RelativePath = !string.IsNullOrEmpty(relativePath)
+            m_RelativePath = !string.IsNullOrEmpty(relativePath)
                 ? relativePath
                 : throw new ArgumentException("Invalid relative path (it is empty)");
-            this.m_Location = location;
+            m_Location = location;
         }
 
-        
-        //  General Methods -------------------------------
+        // General Methods --------------------------------
+
         private static string CombineFilePath(string relativePath, CustomFilePathLocation location)
         {
             if (relativePath[0] == '/')
                 relativePath = relativePath.Substring(1);
-            switch (location)
+
+            return location switch
             {
-                case CustomFilePathLocation.PersistentDataPath:
-                    return Application.persistentDataPath + "/" + relativePath;
-                case CustomFilePathLocation.StreamingAssetsPath:
-                    return Application.streamingAssetsPath + "/" + relativePath;
-                default:
-                    throw new SwitchDefaultException(location);
-            }
+                CustomFilePathLocation.PersistentDataPath => Application.persistentDataPath + "/" + relativePath,
+                CustomFilePathLocation.StreamingAssetsPath => Application.streamingAssetsPath + "/" + relativePath,
+                _ => throw new SwitchDefaultException(location)
+            };
         }
 
-        
+        // GetCustomFilePathAttribute with generic type
         public static CustomFilePathAttribute GetCustomFilePathAttribute<T>()
         {
-            foreach (object customAttribute in typeof(T).GetCustomAttributes(true))
+            return GetCustomFilePathAttribute(typeof(T));
+        }
+
+        // GetCustomFilePathAttribute with non-generic type
+        public static CustomFilePathAttribute GetCustomFilePathAttribute(Type type)
+        {
+            while (type != null && type != typeof(object))
             {
-                CustomFilePathAttribute customFilePathAttribute = customAttribute as CustomFilePathAttribute;
-                if (customFilePathAttribute != null)
-                    return customFilePathAttribute;
+                object[] attributes = type.GetCustomAttributes(true);
+                foreach (object attribute in attributes)
+                {
+                    if (attribute is CustomFilePathAttribute customFilePathAttribute)
+                    {
+                        return customFilePathAttribute;
+                    }
+                }
+
+                // Traverse up the class hierarchy, but ignore interfaces for attribute lookup
+                type = type.BaseType;
             }
 
             return null;

@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+//NOTE: Promote visibility, thus avoid any namespace
 [CustomPropertyDrawer(typeof(InterfaceReference<>))]
 [CustomPropertyDrawer(typeof(InterfaceReference<,>))]
 public class InterfaceReferenceDrawer : PropertyDrawer {
