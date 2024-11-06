@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// ReSharper disable StaticMemberInGenericType
+// ReSharper disable MemberCanBeProtected.Global
 namespace RMC.Core.DesignPatterns.Creational.Singletons
 {
     //  Parent Class  --------------------------------------
@@ -165,7 +167,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
             if (IsInstantiated && !IsShuttingDown)
             {
                 // Find and destroy all instances of T in the scene (both active and inactive)
-                //NOTE: This seems heavy-handed, but so far all tests pass and it seems to work well at runtime
+                //NOTE: This seems heavy-handed, but so far all tests pass, and it seems to work well at runtime
                 var allInstances = FindObjectsByType<T>(FindObjectsInactive.Include, FindObjectsSortMode.None);
                 foreach (var instance in allInstances)
                 {

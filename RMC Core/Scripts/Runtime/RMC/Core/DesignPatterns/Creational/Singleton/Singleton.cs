@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace RMC.Core.DesignPatterns.Creational.Singletons
@@ -15,7 +16,8 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     public abstract class SingletonParent : System.Object, ISingletonParent
     {
         //  Properties ------------------------------------
-        public UnityEvent OnInstantiated = new UnityEvent();
+        [HideInInspector]
+        public readonly UnityEvent OnInstantiated = new UnityEvent();
 
         //  General Methods -------------------------------
         void ISingletonParent.OnInstantiatedBase()
