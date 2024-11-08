@@ -53,13 +53,13 @@ namespace RMC.Core.Data.Types.Storage
         public void Setup()
         {
             //Ensure deleted before testing
-            if (LocalDiskStoragePlayMode.Instance.Has<PersistentDataPathStorageSampleA1>())
+            if (LocalDiskStorage.Instance.Has<PersistentDataPathStorageSampleA1>())
             {
-                LocalDiskStoragePlayMode.Instance.Delete<PersistentDataPathStorageSampleA1>();
+                LocalDiskStorage.Instance.Delete<PersistentDataPathStorageSampleA1>();
             }
-            if (LocalDiskStoragePlayMode.Instance.Has<PersistentDataPathStorageSampleA2>())
+            if (LocalDiskStorage.Instance.Has<PersistentDataPathStorageSampleA2>())
             {
-                LocalDiskStoragePlayMode.Instance.Delete<PersistentDataPathStorageSampleA2>();
+                LocalDiskStorage.Instance.Delete<PersistentDataPathStorageSampleA2>();
             }
         }
 
@@ -67,13 +67,13 @@ namespace RMC.Core.Data.Types.Storage
         public void TearDown()
         {
             //Ensure deleted after testing (to remove console error)
-            if (LocalDiskStoragePlayMode.Instance.Has<PersistentDataPathStorageSampleA1>())
+            if (LocalDiskStorage.Instance.Has<PersistentDataPathStorageSampleA1>())
             {
-                LocalDiskStoragePlayMode.Instance.Delete<PersistentDataPathStorageSampleA1>();
+                LocalDiskStorage.Instance.Delete<PersistentDataPathStorageSampleA1>();
             }
-            if (LocalDiskStoragePlayMode.Instance.Has<PersistentDataPathStorageSampleA2>())
+            if (LocalDiskStorage.Instance.Has<PersistentDataPathStorageSampleA2>())
             {
-                LocalDiskStoragePlayMode.Instance.Delete<PersistentDataPathStorageSampleA2>();
+                LocalDiskStorage.Instance.Delete<PersistentDataPathStorageSampleA2>();
             }
         }
 
@@ -85,7 +85,7 @@ namespace RMC.Core.Data.Types.Storage
             // Arrange
        
             // Act
-            bool hasData = LocalDiskStoragePlayMode.Instance.Has<PersistentDataPathStorageSampleA1>();
+            bool hasData = LocalDiskStorage.Instance.Has<PersistentDataPathStorageSampleA1>();
 
             // Assert
             Assert.That(hasData, Is.False);
@@ -96,11 +96,11 @@ namespace RMC.Core.Data.Types.Storage
         public void Has_ResultIsTrue_WhenSaved()
         {
             // Arrange
-            LocalDiskStoragePlayMode.Instance.Save<PersistentDataPathStorageSampleA1> (
+            LocalDiskStorage.Instance.Save<PersistentDataPathStorageSampleA1> (
                 new PersistentDataPathStorageSampleA1());
             
             // Act
-            bool hasData = LocalDiskStoragePlayMode.Instance.Has<PersistentDataPathStorageSampleA1>();
+            bool hasData = LocalDiskStorage.Instance.Has<PersistentDataPathStorageSampleA1>();
 
             // Assert
             Assert.That(hasData, Is.True);
@@ -117,7 +117,7 @@ namespace RMC.Core.Data.Types.Storage
             // Assert
             Assert.Throws<Exception>(() =>
             {
-                var data = LocalDiskStoragePlayMode.Instance.Load<PersistentDataPathStorageSampleA1>();
+                var data = LocalDiskStorage.Instance.Load<PersistentDataPathStorageSampleA1>();
             });
 
         }
@@ -126,11 +126,11 @@ namespace RMC.Core.Data.Types.Storage
         public void Load_ResultIsNotNull_WhenSaved()
         {
             // Arrange
-            LocalDiskStoragePlayMode.Instance.Save<PersistentDataPathStorageSampleA1> (
+            LocalDiskStorage.Instance.Save<PersistentDataPathStorageSampleA1> (
                 new PersistentDataPathStorageSampleA1());
 
             // Act
-            var data = LocalDiskStoragePlayMode.Instance.Load<PersistentDataPathStorageSampleA1>();
+            var data = LocalDiskStorage.Instance.Load<PersistentDataPathStorageSampleA1>();
 
             // Assert
             Assert.That(data, Is.Not.Null);
@@ -145,11 +145,11 @@ namespace RMC.Core.Data.Types.Storage
             var inputData = new PersistentDataPathStorageSampleA1();
             inputData.Value = expectedValue;
             
-            LocalDiskStoragePlayMode.Instance.Save<PersistentDataPathStorageSampleA1> (
+            LocalDiskStorage.Instance.Save<PersistentDataPathStorageSampleA1> (
                 inputData);
 
             // Act
-            var outputData = LocalDiskStoragePlayMode.Instance.Load<PersistentDataPathStorageSampleA1>();
+            var outputData = LocalDiskStorage.Instance.Load<PersistentDataPathStorageSampleA1>();
 
             // Assert
             Assert.That(outputData.Value, Is.EqualTo(expectedValue));
@@ -168,11 +168,11 @@ namespace RMC.Core.Data.Types.Storage
             var inputData2 = new PersistentDataPathStorageSampleA2();
             inputData2.Value = 20;
             
-            LocalDiskStoragePlayMode.Instance.Save<PersistentDataPathStorageSampleA1> (
+            LocalDiskStorage.Instance.Save<PersistentDataPathStorageSampleA1> (
                 inputData);
 
             // Act
-            var outputData = LocalDiskStoragePlayMode.Instance.Load<PersistentDataPathStorageSampleA1>();
+            var outputData = LocalDiskStorage.Instance.Load<PersistentDataPathStorageSampleA1>();
 
             // Assert
             Assert.That(outputData.Value, Is.EqualTo(expectedValue));

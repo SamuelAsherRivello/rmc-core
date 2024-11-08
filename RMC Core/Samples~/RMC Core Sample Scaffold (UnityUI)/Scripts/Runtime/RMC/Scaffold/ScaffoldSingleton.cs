@@ -2,7 +2,6 @@
 using RMC.Core.Components.Attributes;
 using RMC.Core.Data.Types.Storage;
 using RMC.Core.DesignPatterns.Creational.Singletons;
-using UnityEngine;
 
 namespace RMC.Core.Samples.Scaffold
 {

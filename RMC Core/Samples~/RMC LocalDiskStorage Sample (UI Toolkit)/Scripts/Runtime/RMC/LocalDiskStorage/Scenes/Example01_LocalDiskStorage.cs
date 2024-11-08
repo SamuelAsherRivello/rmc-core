@@ -42,13 +42,13 @@ namespace RMC.Core.Samples.LocalDiskStorageView
             // Body
             _view.DetailsTextField.label = "Details";
 
-            if (LocalDiskStoragePlayMode.Instance.IsSupportedOnCurrentPlatform())
+            if (LocalDiskStorage.Instance.IsSupportedOnCurrentPlatform())
             {
                 _view.DetailsTextField.value = "* Load data from disk.\n* Save data to disk.\n* Increment data.\n";
             }
             else
             {
-                _view.DetailsTextField.value = LocalDiskStoragePlayMode.NotSupportedWarning;
+                _view.DetailsTextField.value = LocalDiskStorage.NotSupportedWarning;
             }
           
             //
@@ -73,7 +73,7 @@ namespace RMC.Core.Samples.LocalDiskStorageView
         //  Methods ---------------------------------------
         private async UniTask RefreshUIAsync()
         {
-            bool hasData = LocalDiskStoragePlayMode.Instance.Has<LocalDiskStorageDataSample>();
+            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageDataSample>();
             
             if (hasData && _localDiskStorageDataSample != null)
             {
@@ -92,12 +92,12 @@ namespace RMC.Core.Samples.LocalDiskStorageView
         //  Event Handlers --------------------------------
         private async void LoadButton_OnClicked()
         {
-            bool hasData = LocalDiskStoragePlayMode.Instance.Has<LocalDiskStorageDataSample>();
+            bool hasData = LocalDiskStorage.Instance.Has<LocalDiskStorageDataSample>();
 
             if (hasData)
             {
                 _localDiskStorageDataSample = 
-                    LocalDiskStoragePlayMode.Instance.Load<LocalDiskStorageDataSample>();
+                    LocalDiskStorage.Instance.Load<LocalDiskStorageDataSample>();
             }
             
             
@@ -111,7 +111,7 @@ namespace RMC.Core.Samples.LocalDiskStorageView
                 _localDiskStorageDataSample = new LocalDiskStorageDataSample();
             }
             
-            LocalDiskStoragePlayMode.Instance.Save<LocalDiskStorageDataSample>(_localDiskStorageDataSample);
+            LocalDiskStorage.Instance.Save<LocalDiskStorageDataSample>(_localDiskStorageDataSample);
             
             await RefreshUIAsync();
         }

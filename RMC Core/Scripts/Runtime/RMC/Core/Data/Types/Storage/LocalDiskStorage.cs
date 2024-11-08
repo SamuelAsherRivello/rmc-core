@@ -10,7 +10,7 @@ using UnityEditor;
 #pragma warning disable CS0414
 namespace RMC.Core.Data.Types.Storage   
 {
-    public sealed class LocalDiskStoragePlayMode : SingletonPlayMode<LocalDiskStoragePlayMode>, ISingletonParent
+    public sealed class LocalDiskStorage : Singleton<LocalDiskStorage>, ISingletonParent
     {
         // Properties ------------------------------------
         public const string Title = "LocalDiskStorage";
@@ -21,7 +21,7 @@ namespace RMC.Core.Data.Types.Storage
         private static bool HasWarnedOnce = false; //once per runtime session
 
         // Initialization Methods -------------------------
-        public LocalDiskStoragePlayMode()
+        public LocalDiskStorage()
         {
             // Avoid using constructor for initialization
         }
@@ -47,10 +47,10 @@ namespace RMC.Core.Data.Types.Storage
         {
             if (!IsSupportedOnCurrentPlatform())
             {
-                if (!LocalDiskStoragePlayMode.HasWarnedOnce)
+                if (!LocalDiskStorage.HasWarnedOnce)
                 {
-                    Debug.LogWarning(LocalDiskStoragePlayMode.NotSupportedWarning);
-                    LocalDiskStoragePlayMode.HasWarnedOnce = true;
+                    Debug.LogWarning(LocalDiskStorage.NotSupportedWarning);
+                    LocalDiskStorage.HasWarnedOnce = true;
                 }
                
      

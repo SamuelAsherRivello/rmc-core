@@ -86,7 +86,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     ///
     /// This version is designed for situations: Non-Monobehaviour, Non-ScriptableObject
     /// </summary>
-    public abstract class SingletonPlayMode<T> : SingletonParent where T : SingletonParent, new()
+    public abstract class Singleton<T> : SingletonParent where T : SingletonParent, new()
     {
         //  Properties ------------------------------------
 
