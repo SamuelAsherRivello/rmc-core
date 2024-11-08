@@ -34,7 +34,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     /// It includes several common features for managing the singleton lifecycle, ensuring only one instance exists,
     /// and handling Unity-specific lifecycle events like play mode changes.
     /// </summary>
-    public abstract class SingletonMonoBehaviourPlayMode<T> : SingletonMonoBehaviour where T : MonoBehaviour
+    public abstract class SingletonMonoBehaviour<T> : SingletonMonoBehaviour where T : MonoBehaviour
     {
         //  Logging ---------------------------------------
         private static readonly bool IsDebug = false;
@@ -123,7 +123,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
         private static string CustomName => $"SingletonMonoBehaviour<{typeof(T).Name}>";
 
         //  Initialization  -------------------------------
-        private static void ConstructIfNeeded(SingletonMonoBehaviourPlayMode<T> inInstance)
+        private static void ConstructIfNeeded(SingletonMonoBehaviour<T> inInstance)
         {
             lock (_InstanceLock)
             {

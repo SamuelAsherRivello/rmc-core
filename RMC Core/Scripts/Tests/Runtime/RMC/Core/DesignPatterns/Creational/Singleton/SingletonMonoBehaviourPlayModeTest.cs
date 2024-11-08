@@ -9,7 +9,7 @@ namespace RMC.Core.DesignPatterns.Creational.Singletons
     public class SingletonMonoBehaviourPlayModeTest
     {
         //  Classes ----------------------------------------
-        private class SampleSingletonMonoBehaviourPlayMode : SingletonMonoBehaviourPlayMode<SampleSingletonMonoBehaviourPlayMode>
+        private class SampleSingletonMonoBehaviourPlayMode : SingletonMonoBehaviour<SampleSingletonMonoBehaviourPlayMode>
         {
             //  Properties ------------------------------------
             public int Value { get; set; } = 0;
